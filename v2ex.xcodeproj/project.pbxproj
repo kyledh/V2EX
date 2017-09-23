@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */; };
+		2768BA791F765D2600FE7BF3 /* KDUIKitUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */; };
+		2768BA7B1F765D3000FE7BF3 /* KDConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */; };
+		2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */; };
+		2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */; };
+		2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */; };
+		2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */; };
 		27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7A05A1F7645A7006B184E /* AppDelegate.swift */; };
-		27B7A05D1F7645A7006B184E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7A05C1F7645A7006B184E /* ViewController.swift */; };
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
 		27B7A0651F7645A7006B184E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */; };
@@ -35,9 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDBaseViewController.swift; sourceTree = "<group>"; };
+		2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUIKitUtil.swift; sourceTree = "<group>"; };
+		2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConfigUtil.swift; sourceTree = "<group>"; };
+		2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDAPIClient.swift; sourceTree = "<group>"; };
+		2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMainViewController.swift; sourceTree = "<group>"; };
+		2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDHomeViewController.swift; sourceTree = "<group>"; };
+		2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUserViewController.swift; sourceTree = "<group>"; };
 		27B7A0571F7645A7006B184E /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B7A05A1F7645A7006B184E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27B7A05C1F7645A7006B184E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27B7A05F1F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27B7A0611F7645A7006B184E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B7A0641F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,15 +91,128 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2768BA6F1F765BD500FE7BF3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				27B7A05A1F7645A7006B184E /* AppDelegate.swift */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		2768BA701F765BE700FE7BF3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA751F765C1F00FE7BF3 /* Network */,
+				2768BA741F765C1900FE7BF3 /* UI */,
+				2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */,
+			);
+			name = Utils;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2768BA711F765BFE00FE7BF3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA721F765C0600FE7BF3 /* Base */,
+				2768BA811F765F5C00FE7BF3 /* Home */,
+				2768BA731F765C0B00FE7BF3 /* Main */,
+				2768BA821F765F6100FE7BF3 /* User */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2768BA721F765C0600FE7BF3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */,
+			);
+			name = Base;
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2768BA731F765C0B00FE7BF3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA7E1F765D4E00FE7BF3 /* Controller */,
+			);
+			name = Main;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2768BA741F765C1900FE7BF3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */,
+			);
+			name = UI;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2768BA751F765C1F00FE7BF3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */,
+			);
+			name = Network;
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2768BA7E1F765D4E00FE7BF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */,
+			);
+			name = Controller;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2768BA811F765F5C00FE7BF3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA831F765F8D00FE7BF3 /* Controller */,
+			);
+			name = Home;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2768BA821F765F6100FE7BF3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA861F765FAD00FE7BF3 /* Controller */,
+			);
+			name = User;
+			path = User;
+			sourceTree = "<group>";
+		};
+		2768BA831F765F8D00FE7BF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */,
+			);
+			name = Controller;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2768BA861F765FAD00FE7BF3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
+			);
+			name = Controller;
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		27B7A04E1F7645A7006B184E = {
 			isa = PBXGroup;
 			children = (
+				E794F875A34A473555378A08 /* Frameworks */,
+				A3D1BF19DBE22F7D385595C0 /* Pods */,
+				27B7A0581F7645A7006B184E /* Products */,
 				27B7A0591F7645A7006B184E /* v2ex */,
 				27B7A06E1F7645A7006B184E /* v2exTests */,
 				27B7A0791F7645A7006B184E /* v2exUITests */,
-				27B7A0581F7645A7006B184E /* Products */,
-				A3D1BF19DBE22F7D385595C0 /* Pods */,
-				E794F875A34A473555378A08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,12 +229,13 @@
 		27B7A0591F7645A7006B184E /* v2ex */ = {
 			isa = PBXGroup;
 			children = (
-				27B7A05A1F7645A7006B184E /* AppDelegate.swift */,
-				27B7A05C1F7645A7006B184E /* ViewController.swift */,
-				27B7A05E1F7645A7006B184E /* Main.storyboard */,
+				2768BA6F1F765BD500FE7BF3 /* App */,
+				2768BA711F765BFE00FE7BF3 /* Classes */,
+				2768BA701F765BE700FE7BF3 /* Utils */,
 				27B7A0611F7645A7006B184E /* Assets.xcassets */,
-				27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */,
 				27B7A0661F7645A7006B184E /* Info.plist */,
+				27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */,
+				27B7A05E1F7645A7006B184E /* Main.storyboard */,
 			);
 			path = v2ex;
 			sourceTree = "<group>";
@@ -117,8 +243,8 @@
 		27B7A06E1F7645A7006B184E /* v2exTests */ = {
 			isa = PBXGroup;
 			children = (
-				27B7A06F1F7645A7006B184E /* v2exTests.swift */,
 				27B7A0711F7645A7006B184E /* Info.plist */,
+				27B7A06F1F7645A7006B184E /* v2exTests.swift */,
 			);
 			path = v2exTests;
 			sourceTree = "<group>";
@@ -126,8 +252,8 @@
 		27B7A0791F7645A7006B184E /* v2exUITests */ = {
 			isa = PBXGroup;
 			children = (
-				27B7A07A1F7645A7006B184E /* v2exUITests.swift */,
 				27B7A07C1F7645A7006B184E /* Info.plist */,
+				27B7A07A1F7645A7006B184E /* v2exUITests.swift */,
 			);
 			path = v2exUITests;
 			sourceTree = "<group>";
@@ -336,8 +462,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27B7A05D1F7645A7006B184E /* ViewController.swift in Sources */,
+				2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */,
+				2768BA7B1F765D3000FE7BF3 /* KDConfigUtil.swift in Sources */,
+				2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */,
+				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
+				2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */,
+				2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */,
 				27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */,
+				2768BA791F765D2600FE7BF3 /* KDUIKitUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +511,7 @@
 				27B7A05F1F7645A7006B184E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */ = {
@@ -387,6 +520,7 @@
 				27B7A0641F7645A7006B184E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
