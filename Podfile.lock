@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.5.1)
+  - HandyJSON (1.8.0)
+  - PKHUD (4.2.3)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxSwift (3.6.1)
+  - SnapKit (3.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - HandyJSON (~> 1.8)
+  - PKHUD (~> 4.0)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
+  - SnapKit (~> 3.2)
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  HandyJSON: edaaa3278bf4c4c96d6f7382b80d6b91c88d3bf5
+  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+
+PODFILE CHECKSUM: 9e19cefb06780b71e3707860f8e6445ce2e1c30d
+
+COCOAPODS: 1.2.1
