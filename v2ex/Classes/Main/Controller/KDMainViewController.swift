@@ -8,11 +8,11 @@
 
 import UIKit
 
-class KDMainViewController: UITabBarController, UITabBarControllerDelegate {
+class KDMainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = KDUIKitUtil.HEXCOLOR("000000")
+        tabBar.tintColor = KDUIKitUtil.HEXCOLOR("000000")
         
         let homeNavigationController = UINavigationController.init(rootViewController: KDHomeViewController())
         let userNavigationController = UINavigationController.init(rootViewController: KDUserViewController())
@@ -22,7 +22,7 @@ class KDMainViewController: UITabBarController, UITabBarControllerDelegate {
         userNavigationController.tabBarItem.title = "个人"
         userNavigationController.tabBarItem.image = UIImage.init(imageLiteralResourceName: "kd_user")
         
-        self.viewControllers = [homeNavigationController,
+        viewControllers = [homeNavigationController,
                                 userNavigationController]
     }
     

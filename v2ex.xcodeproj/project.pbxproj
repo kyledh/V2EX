@@ -14,6 +14,7 @@
 		2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */; };
 		2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */; };
 		2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */; };
+		2768BA8A1F766B2100FE7BF3 /* KDPostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA891F766B2100FE7BF3 /* KDPostListViewController.swift */; };
 		27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7A05A1F7645A7006B184E /* AppDelegate.swift */; };
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMainViewController.swift; sourceTree = "<group>"; };
 		2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDHomeViewController.swift; sourceTree = "<group>"; };
 		2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUserViewController.swift; sourceTree = "<group>"; };
+		2768BA891F766B2100FE7BF3 /* KDPostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPostListViewController.swift; sourceTree = "<group>"; };
 		27B7A0571F7645A7006B184E /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B7A05A1F7645A7006B184E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B7A05F1F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,7 +98,6 @@
 			children = (
 				27B7A05A1F7645A7006B184E /* AppDelegate.swift */,
 			);
-			name = App;
 			path = App;
 			sourceTree = "<group>";
 		};
@@ -107,7 +108,6 @@
 				2768BA741F765C1900FE7BF3 /* UI */,
 				2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -119,7 +119,6 @@
 				2768BA731F765C0B00FE7BF3 /* Main */,
 				2768BA821F765F6100FE7BF3 /* User */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -128,7 +127,6 @@
 			children = (
 				2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */,
 			);
-			name = Base;
 			path = Base;
 			sourceTree = "<group>";
 		};
@@ -137,7 +135,6 @@
 			children = (
 				2768BA7E1F765D4E00FE7BF3 /* Controller */,
 			);
-			name = Main;
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -146,7 +143,6 @@
 			children = (
 				2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */,
 			);
-			name = UI;
 			path = UI;
 			sourceTree = "<group>";
 		};
@@ -155,7 +151,6 @@
 			children = (
 				2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */,
 			);
-			name = Network;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -164,7 +159,6 @@
 			children = (
 				2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -173,7 +167,6 @@
 			children = (
 				2768BA831F765F8D00FE7BF3 /* Controller */,
 			);
-			name = Home;
 			path = Home;
 			sourceTree = "<group>";
 		};
@@ -182,7 +175,6 @@
 			children = (
 				2768BA861F765FAD00FE7BF3 /* Controller */,
 			);
-			name = User;
 			path = User;
 			sourceTree = "<group>";
 		};
@@ -190,8 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */,
+				2768BA891F766B2100FE7BF3 /* KDPostListViewController.swift */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -200,7 +192,6 @@
 			children = (
 				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -468,6 +459,7 @@
 				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
 				2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */,
 				2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */,
+				2768BA8A1F766B2100FE7BF3 /* KDPostListViewController.swift in Sources */,
 				27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */,
 				2768BA791F765D2600FE7BF3 /* KDUIKitUtil.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ class KDUserViewController: KDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "个人";
+        title = "个人";
     }
 
 }

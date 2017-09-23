@@ -20,7 +20,7 @@ class KDAPIClient {
     func getRequest(path: String, params: [String : AnyObject],
                     success: @escaping (_ responseObject: [String : AnyObject]) -> (), failture: @escaping (_ error: NSError) -> ())
     {
-        self.request(method: .get, path: path, params: params, success: { (responseObject) in
+        request(method: .get, path: path, params: params, success: { (responseObject) in
             success(responseObject)
         }, failture: { (error) in
             failture(error)
@@ -30,7 +30,7 @@ class KDAPIClient {
     func postRequest(path: String, params: [String : AnyObject],
                      success: @escaping (_ responseObject: [String : AnyObject]) -> (), failture: @escaping (_ error: NSError) -> ())
     {
-        self.request(method: .post, path: path, params: params, success: { (responseObject) in
+        request(method: .post, path: path, params: params, success: { (responseObject) in
             success(responseObject)
         }, failture: { (error) in
             failture(error)

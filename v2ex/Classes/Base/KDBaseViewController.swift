@@ -12,19 +12,18 @@ class KDBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = []
-        self.view.backgroundColor = KDUIKitUtil.HEXCOLOR("FAF7FF")
+        edgesForExtendedLayout = []
     }
     
     func setNavigationBarTransparent(_ bool: Bool) {
         if bool {
-            self.navigationController?.navigationBar.isTranslucent = true
-            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            self.navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.isTranslucent = true
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            navigationController?.navigationBar.shadowImage = UIImage()
         } else {
-            self.navigationController?.navigationBar.isTranslucent = false
-            self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-            self.navigationController?.navigationBar.shadowImage = nil
+            navigationController?.navigationBar.isTranslucent = false
+            navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+            navigationController?.navigationBar.shadowImage = nil
         }
     }
 
