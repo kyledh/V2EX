@@ -12,7 +12,7 @@ class KDMainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = KDUIKitUtil.HEXCOLOR("000000")
+        tabBar.tintColor = UIColor.black
         
         let homeNavigationController = UINavigationController.init(rootViewController: KDHomeViewController())
         let userNavigationController = UINavigationController.init(rootViewController: KDUserViewController())

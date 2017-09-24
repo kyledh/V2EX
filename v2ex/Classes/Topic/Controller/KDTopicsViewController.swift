@@ -27,7 +27,7 @@ class KDTopicsViewController: KDBaseViewController {
     }
     
     private func p_loadData() {
-        viewModel.getTopicLatest(success: { (data) in
+        viewModel.fetchTopicLatest(success: { (data) in
             self.tableView.reloadData()
         }) { (error) in
         }
@@ -39,6 +39,8 @@ class KDTopicsViewController: KDBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.register(KDTopicCell.classForCoder(), forCellReuseIdentifier: "kd_topic_cell")
         return tableView
     }()
 }
@@ -49,7 +51,7 @@ extension KDTopicsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < viewModel.topics.count {
             let model = viewModel.topics[indexPath.row]
-            let cell = KDTopicCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "kd_topic_cell") as! KDTopicCell
             cell.loadData(model)
             return cell
         }
@@ -59,7 +61,11 @@ extension KDTopicsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row < viewModel.topics.count {
-            // TODO: 主题详情
+            let topicModel = viewModel.topics[indexPath.row]
+            let topicDetailViewController = KDTopicDetailViewController()
+            topicDetailViewController.viewModel.topic = topicModel
+            topicDetailViewController.hidesBottomBarWhenPushed = true
+            navigationController?.pushViewController(topicDetailViewController, animated: true)
         }
     }
 }

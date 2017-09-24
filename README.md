@@ -29,4 +29,6 @@
 
 ## SCREENSHORTS
 
-<img src="https://i.loli.net/2017/09/24/59c768b478781.png" width="400px" />
+<img src="https://i.loli.net/2017/09/24/59c7c8fc531b0.png" width="400px" />
+
+<img src="https://i.loli.net/2017/09/24/59c7c8fc8f849.png" width="400px" />

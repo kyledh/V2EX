@@ -21,7 +21,7 @@ class KDTopicCell: UITableViewCell {
         p_setupView()
     }
     
-    // FIXME: 不合理，应该使用 Struts，正在研究
+    // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDTopicModel) {
         let url = URL(string: "https:" + (model.member?.avatarNormal)!)
         avatorImageView.kf.setImage(with: url)
@@ -34,6 +34,7 @@ class KDTopicCell: UITableViewCell {
     
     // MARK: Private Method
     private func p_setupView() {
+        contentView.bottomLine()
         contentView.addSubview(avatorImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(nodeLabel)
@@ -93,7 +94,7 @@ class KDTopicCell: UITableViewCell {
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
         creatorLabel.textColor = KDUIKitUtil.HEXCOLOR("778087")
-        creatorLabel.font = UIFont.systemFont(ofSize: 12)
+        creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return creatorLabel
     }()
     
@@ -101,7 +102,7 @@ class KDTopicCell: UITableViewCell {
        var repliesLabel = UILabel()
         repliesLabel.textColor = UIColor.white
         repliesLabel.backgroundColor = KDUIKitUtil.HEXCOLOR("aab0c6")
-        repliesLabel.font = UIFont.systemFont(ofSize: 12)
+        repliesLabel.font = UIFont.boldSystemFont(ofSize: 12)
         repliesLabel.layer.cornerRadius = 5
         repliesLabel.layer.masksToBounds = true
         repliesLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)

@@ -14,6 +14,7 @@ class KDBaseViewController: UIViewController {
         super.viewDidLoad()
         edgesForExtendedLayout = []
         view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     func setNavigationBarTransparent(_ bool: Bool) {

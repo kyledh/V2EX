@@ -8,14 +8,14 @@
 
 import UIKit
 
-class KDTopicsViewModel: NSObject {
+class KDTopicsViewModel {
     
     var topics = [KDTopicModel]()
 
-    func getTopicLatest(success: @escaping (_ responseObject: [KDTopicModel]) -> (), failture: @escaping (_ error: NSError) -> ()) {
-        KDAPIClient.sharedClient.getTopicsLatest(success: { (data) in
+    func fetchTopicLatest(success: @escaping (_ responseObject: [KDTopicModel]) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+        KDAPIClient.sharedClient.fetchTopicsLatest(success: { (data) in
             self.topics = [KDTopicModel].deserialize(from: data) as! [KDTopicModel]
-            success(self.topics )
+            success(self.topics)
         }) { (error) in
             failture(error)
         }
