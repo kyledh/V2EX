@@ -15,21 +15,25 @@ class KDTopicsViewController: KDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         p_setupView()
-        p_loadData()
+        refreshData()
+    }
+    
+    func refreshData() {
+        refreshControl.beginRefreshing()
+        viewModel.fetchTopicLatest(success: { (data) in
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }) { (error) in
+            self.refreshControl.endRefreshing()
+        }
     }
     
     // MARK: Private Method
     private func p_setupView() {
         view.addSubview(tableView)
+        tableView.addSubview(refreshControl)
         tableView .snp.makeConstraints { (make) in
             make.edges.equalTo(view)
-        }
-    }
-    
-    private func p_loadData() {
-        viewModel.fetchTopicLatest(success: { (data) in
-            self.tableView.reloadData()
-        }) { (error) in
         }
     }
     
@@ -42,6 +46,13 @@ class KDTopicsViewController: KDBaseViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.register(KDTopicCell.classForCoder(), forCellReuseIdentifier: "kd_topic_cell")
         return tableView
+    }()
+    
+    private lazy var refreshControl: UIRefreshControl = {
+        var refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
+        return refreshControl
     }()
 }
 
