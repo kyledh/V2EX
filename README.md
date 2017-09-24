@@ -23,8 +23,10 @@
 
 ## WHY???
 
-- ! ?到处都是？？？
 - 类型转换？？？
 - 访问控制？？？
 - 编码规范？？？
 
+## SCREENSHORTS
+
+<img src="https://i.loli.net/2017/09/24/59c768b478781.png" width="400px" />

@@ -50,7 +50,7 @@ extension KDTopicsViewController: UITableViewDelegate {
         if indexPath.row < viewModel.topics.count {
             let model = viewModel.topics[indexPath.row]
             let cell = KDTopicCell()
-            cell.loadData(model.title!, (model.node?.title)!, (model.member?.username)!)
+            cell.loadData(model)
             return cell
         }
         return UITableViewCell()

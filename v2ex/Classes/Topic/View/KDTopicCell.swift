@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class KDTopicCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
@@ -19,37 +21,59 @@ class KDTopicCell: UITableViewCell {
         p_setupView()
     }
     
-    func loadData(_ title: String, _ node: String, _ creator: String) {
-        titleLabel.text = title
-        nodeLabel.text = node
-        creatorLabel.text = creator
+    // FIXME: 不合理，应该使用 Struts，正在研究
+    func loadData(_ model: KDTopicModel) {
+        let url = URL(string: "https:" + (model.member?.avatarNormal)!)
+        avatorImageView.kf.setImage(with: url)
+        titleLabel.text = model.title
+        nodeLabel.text = " \(model.node?.title ?? "") "
+        creatorLabel.text = model.member?.username
+        repliesLabel.text = " \(model.replies ?? 0) "
         layoutIfNeeded()
     }
     
     // MARK: Private Method
     private func p_setupView() {
+        contentView.addSubview(avatorImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(nodeLabel)
         contentView.addSubview(creatorLabel)
+        contentView.addSubview(repliesLabel)
+        avatorImageView.snp.makeConstraints { (make) in
+            make.left.equalTo(contentView).offset(15)
+            make.width.height.equalTo(35)
+            make.centerY.equalTo(contentView)
+        }
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(10)
-            make.left.equalTo(contentView).offset(15)
-            make.right.lessThanOrEqualTo(contentView).offset(-15)
+            make.left.equalTo(avatorImageView.snp.right).offset(10)
+            make.right.lessThanOrEqualTo(repliesLabel.snp.left).offset(-10)
         }
         nodeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.left.equalTo(contentView).offset(15)
+            make.left.equalTo(avatorImageView.snp.right).offset(10)
             make.bottom.equalTo(contentView).offset(-10)
         }
         creatorLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.left.equalTo(nodeLabel.snp.right).offset(10)
-            make.right.lessThanOrEqualTo(contentView).offset(15)
+            make.right.lessThanOrEqualTo(repliesLabel.snp.left).offset(-10)
             make.bottom.equalTo(contentView).offset(-10)
+        }
+        repliesLabel.snp.makeConstraints { (make) in
+            make.right.equalTo(contentView).offset(-15)
+            make.centerY.equalTo(contentView)
         }
     }
     
     // MARK: Lazy Loading
+    private lazy var avatorImageView: UIImageView = {
+        var avatorImageView = UIImageView()
+        avatorImageView.layer.cornerRadius = 3
+        avatorImageView.layer.masksToBounds = true
+        return avatorImageView
+    }()
+    
     private lazy var titleLabel: UILabel = {
         var titleLabel = UILabel()
         titleLabel.textColor = KDUIKitUtil.HEXCOLOR("778087")
@@ -61,7 +85,7 @@ class KDTopicCell: UITableViewCell {
     private lazy var nodeLabel: UILabel = {
        var nodeLabel = UILabel()
         nodeLabel.textColor = KDUIKitUtil.HEXCOLOR("999999")
-        nodeLabel.font = UIFont.systemFont(ofSize: 10)
+        nodeLabel.font = UIFont.systemFont(ofSize: 12)
         nodeLabel.backgroundColor = KDUIKitUtil.HEXCOLOR("f5f5f5")
         return nodeLabel
     }()
@@ -69,7 +93,18 @@ class KDTopicCell: UITableViewCell {
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
         creatorLabel.textColor = KDUIKitUtil.HEXCOLOR("778087")
-        creatorLabel.font = UIFont.systemFont(ofSize: 10)
+        creatorLabel.font = UIFont.systemFont(ofSize: 12)
         return creatorLabel
+    }()
+    
+    private lazy var repliesLabel: UILabel = {
+       var repliesLabel = UILabel()
+        repliesLabel.textColor = UIColor.white
+        repliesLabel.backgroundColor = KDUIKitUtil.HEXCOLOR("aab0c6")
+        repliesLabel.font = UIFont.systemFont(ofSize: 12)
+        repliesLabel.layer.cornerRadius = 5
+        repliesLabel.layer.masksToBounds = true
+        repliesLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        return repliesLabel
     }()
 }

@@ -9,4 +9,5 @@ target 'v2ex' do
     pod 'Alamofire', '~> 4.5'
     pod 'HandyJSON', '~> 1.8'
     pod 'PKHUD', '~> 4.0'
+    pod 'Kingfisher', '~> 3.0'
 end
