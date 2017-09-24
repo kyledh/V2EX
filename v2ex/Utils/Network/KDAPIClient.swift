@@ -18,7 +18,7 @@ class KDAPIClient {
     }()
     
     func getRequest(path: String, params: [String : AnyObject],
-                    success: @escaping (_ responseObject: [String : AnyObject]) -> (), failture: @escaping (_ error: NSError) -> ())
+                    success: @escaping (_ responseObject:  AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
     {
         request(method: .get, path: path, params: params, success: { (responseObject) in
             success(responseObject)
@@ -28,7 +28,7 @@ class KDAPIClient {
     }
     
     func postRequest(path: String, params: [String : AnyObject],
-                     success: @escaping (_ responseObject: [String : AnyObject]) -> (), failture: @escaping (_ error: NSError) -> ())
+                     success: @escaping (_ responseObject: AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
     {
         request(method: .post, path: path, params: params, success: { (responseObject) in
             success(responseObject)
@@ -38,16 +38,14 @@ class KDAPIClient {
     }
     
     private func request(method: HTTPMethod, path: String, params: [String : AnyObject],
-                         success: @escaping (_ responseObject: [String : AnyObject]) -> (), failture: @escaping (_ error: NSError) -> ())
+                         success: @escaping (_ responseObject: AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
     {
         let urlString = KDConfigUtil.APIHost() + path
         Alamofire.request(urlString, method: method, parameters: params)
             .responseJSON {response in
                 switch response.result {
                 case .success:
-                    if let value = response.result.value as? [String : AnyObject] {
-                        success(value)
-                    }
+                    success(response.result.value as AnyObject)
                 case .failure(let error):
                     failture(error as NSError)
                 }

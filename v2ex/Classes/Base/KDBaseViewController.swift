@@ -13,6 +13,7 @@ class KDBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
+        view.backgroundColor = UIColor.white
     }
     
     func setNavigationBarTransparent(_ bool: Bool) {
@@ -26,5 +27,4 @@ class KDBaseViewController: UIViewController {
             navigationController?.navigationBar.shadowImage = nil
         }
     }
-
 }

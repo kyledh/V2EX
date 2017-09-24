@@ -14,5 +14,4 @@ class KDUserViewController: KDBaseViewController {
         super.viewDidLoad()
         title = "个人";
     }
-
 }

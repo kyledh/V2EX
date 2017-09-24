@@ -32,7 +32,7 @@ class KDHomeViewController: KDBaseViewController {
     }
     
     private func p_setViewControllers() {
-        viewControllers.append(KDPostListViewController())
+        viewControllers.append(KDTopicsViewController())
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
     }
     

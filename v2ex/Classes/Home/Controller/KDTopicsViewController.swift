@@ -1,5 +1,5 @@
 //
-//  KDPostListViewController.swift
+//  KDTopicsViewController.swift
 //  v2ex
 //
 //  Created by donghao on 2017/9/23.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-import PKHUD
-
-class KDPostListViewController: KDBaseViewController {
+class KDTopicsViewController: KDBaseViewController {
+    
+    var viewModel = KDTopicsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         p_setupView()
+        p_loadData()
     }
     
     // MARK: Private Method
@@ -22,6 +23,13 @@ class KDPostListViewController: KDBaseViewController {
         view.addSubview(tableView)
         tableView .snp.makeConstraints { (make) in
             make.edges.equalTo(view)
+        }
+    }
+    
+    private func p_loadData() {
+        viewModel.getTopicLatest(success: { (data) in
+            self.tableView.reloadData()
+        }) { (error) in
         }
     }
     
@@ -36,22 +44,30 @@ class KDPostListViewController: KDBaseViewController {
 }
 
 // MARK: UITableViewDelegate
-extension KDPostListViewController: UITableViewDelegate {
+extension KDTopicsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row < viewModel.topics.count {
+            let model = viewModel.topics[indexPath.row]
+            let cell = KDTopicCell()
+            cell.loadData(model.title!, (model.node?.title)!, (model.member?.username)!)
+            return cell
+        }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        HUD.flash(.label("点击Cell"))
+        if indexPath.row < viewModel.topics.count {
+            // TODO: 主题详情
+        }
     }
 }
 
 // MARK: UITableViewDataSource
-extension KDPostListViewController: UITableViewDataSource {
+extension KDTopicsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return viewModel.topics.count;
     }
 }

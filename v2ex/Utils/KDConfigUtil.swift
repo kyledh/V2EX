@@ -11,7 +11,7 @@ import UIKit
 class KDConfigUtil: UIView {
     
     class func APIHost() -> String {
-        let host: String = "https://www.v2ex.com/"
+        let host: String = "https://www.v2ex.com"
         return host
     }
 
