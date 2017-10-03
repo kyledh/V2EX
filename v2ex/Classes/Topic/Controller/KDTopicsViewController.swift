@@ -18,7 +18,7 @@ class KDTopicsViewController: KDBaseViewController {
         refreshData()
     }
     
-    func refreshData() {
+    @objc func refreshData() {
         refreshControl.beginRefreshing()
         viewModel.fetchTopicLatest(success: { (data) in
             self.tableView.reloadData()

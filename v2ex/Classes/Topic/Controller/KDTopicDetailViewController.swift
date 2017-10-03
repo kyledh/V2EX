@@ -114,7 +114,7 @@ extension KDTopicDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < viewModel.topicReplies.count {
-            let model = viewModel.topicReplies[indexPath.row]
+            let model: KDReplyModel = viewModel.topicReplies[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "kd_reply_cell") as! KDReplyCell
             model.floor = indexPath.row + 1
             cell.loadData(model)

@@ -101,7 +101,7 @@ class KDReplyCell: UITableViewCell {
         floorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         floorLabel.layer.cornerRadius = 5
         floorLabel.layer.masksToBounds = true
-        floorLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        floorLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         return floorLabel
     }()
 }

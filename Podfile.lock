@@ -1,31 +1,21 @@
 PODS:
   - Alamofire (4.5.1)
-  - HandyJSON (1.8.0)
-  - Kingfisher (3.13.1)
-  - PKHUD (4.2.3)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxSwift (3.6.1)
-  - SnapKit (3.2.0)
+  - HandyJSON (4.0.0-beta.1)
+  - Kingfisher (4.0.1)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - HandyJSON (~> 1.8)
-  - Kingfisher (~> 3.0)
-  - PKHUD (~> 4.0)
-  - RxCocoa (~> 3.0)
-  - RxSwift (~> 3.0)
-  - SnapKit (~> 3.2)
+  - HandyJSON (~> 4.0.0-beta.1)
+  - Kingfisher (~> 4.0)
+  - SnapKit (~> 4.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  HandyJSON: edaaa3278bf4c4c96d6f7382b80d6b91c88d3bf5
-  Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
-  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  HandyJSON: 428bb18e2c34c2a77361accebf90cf64e4f74118
+  Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 0908817911702cede9697500c81b8a9db5320b37
+PODFILE CHECKSUM: f97f7960ba5d6b0a722507778bc34d9f2b509d95
 
 COCOAPODS: 1.2.1

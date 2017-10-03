@@ -105,7 +105,7 @@ class KDTopicCell: UITableViewCell {
         repliesLabel.font = UIFont.boldSystemFont(ofSize: 12)
         repliesLabel.layer.cornerRadius = 5
         repliesLabel.layer.masksToBounds = true
-        repliesLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        repliesLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         return repliesLabel
     }()
 }
