@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class KDTopicDetailViewController: KDBaseViewController {
     
@@ -17,6 +18,22 @@ class KDTopicDetailViewController: KDBaseViewController {
         title = "主题详情"
         p_setupView()
         p_loadData()
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize" {
+            let oldSize = change![.oldKey] as! NSValue
+            let newSize = change![.newKey] as! NSValue
+            if oldSize != newSize {
+                let height =  newSize.cgSizeValue.height
+                contentView.snp.updateConstraints({ (make) in
+                    make.height.equalTo(height)
+                })
+            }
+            tableView.tableHeaderView = tableHeaderView
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
     }
     
     // MARK: Private Method
@@ -32,7 +49,8 @@ class KDTopicDetailViewController: KDBaseViewController {
         let topic = viewModel.topic
         titleLabel.text = topic.title
         descriptionLabel.text = "By \(topic.member?.username ?? "") at \(topic.created?.formatDate() ?? "")"
-        contentLabel.text = topic.content
+        let html = KDResources.topicHTML(topic.contentRendered ?? "")
+        contentView.loadHTMLString(html, baseURL: nil)
         tableView.layoutIfNeeded()
         let params = ["topic_id": topic.id]
         viewModel.fetchTopicReplies(params: params as [String : AnyObject], success: { (data) in
@@ -45,7 +63,7 @@ class KDTopicDetailViewController: KDBaseViewController {
         tableView.tableHeaderView = tableHeaderView
         tableHeaderView.addSubview(titleLabel)
         tableHeaderView.addSubview(descriptionLabel)
-        tableHeaderView.addSubview(contentLabel)
+        tableHeaderView.addSubview(contentView)
         tableHeaderView.snp.makeConstraints { (make) in
             make.width.equalTo(tableView.snp.width)
         }
@@ -60,11 +78,12 @@ class KDTopicDetailViewController: KDBaseViewController {
             make.right.equalTo(tableHeaderView).offset(-15)
             make.height.equalTo(25)
         }
-        contentLabel.snp.makeConstraints { (make) in
+        contentView.snp.makeConstraints { (make) in
+            make.height.equalTo(0)
             make.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            make.bottom.equalTo(tableHeaderView).offset(-10)
             make.left.equalTo(tableHeaderView).offset(15)
             make.right.equalTo(tableHeaderView).offset(-15)
-            make.bottom.equalTo(tableHeaderView).offset(-10)
         }
     }
     
@@ -90,12 +109,13 @@ class KDTopicDetailViewController: KDBaseViewController {
         return descriptionLabel
     }()
     
-    private lazy var contentLabel: UILabel = {
-        var contentLabel = UILabel()
-        contentLabel.textColor = UIColor.black
-        contentLabel.font = UIFont.systemFont(ofSize: 14)
-        contentLabel.numberOfLines = 0
-        return contentLabel
+    private lazy var contentView: WKWebView = {
+        var contentView = WKWebView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.allowsLinkPreview = true
+        contentView.scrollView.isScrollEnabled = false
+        contentView.scrollView.addObserver(self, forKeyPath: "contentSize", options: [.old, .new], context: nil)
+        return contentView
     }()
     
     private lazy var tableView: UITableView = {

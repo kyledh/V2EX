@@ -6,9 +6,7 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import UIKit
-
-class KDConfigUtil: UIView {
+class KDConfigUtil {
     
     class func APIHost() -> String {
         let host: String = "https://www.v2ex.com"

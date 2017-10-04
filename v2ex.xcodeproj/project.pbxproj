@@ -14,6 +14,7 @@
 		271BBB5E1F77DFC7003507AC /* KDReplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB5D1F77DFC7003507AC /* KDReplyModel.swift */; };
 		271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB5F1F77E4A6003507AC /* KDReplyCell.swift */; };
 		271BBB621F77F9A4003507AC /* KDFormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB611F77F9A4003507AC /* KDFormatDate.swift */; };
+		271C150B1F83D18900E23040 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 271C150A1F83D18900E23040 /* style.css */; };
 		2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */; };
 		2768BA791F765D2600FE7BF3 /* KDUIKitUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */; };
 		2768BA7B1F765D3000FE7BF3 /* KDConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */; };
@@ -31,6 +32,10 @@
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
 		27B7A0651F7645A7006B184E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */; };
+		27CB24CE1F84923F004CEB00 /* basic.css in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24CD1F84923F004CEB00 /* basic.css */; };
+		27CB24D01F8496C6004CEB00 /* mobile.css in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24CF1F8496C6004CEB00 /* mobile.css */; };
+		27CB24D71F84C076004CEB00 /* topic.html in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24D61F84C076004CEB00 /* topic.html */; };
+		27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DA1F84C89B004CEB00 /* KDResources.swift */; };
 		AA245975717B1D29D90910C3 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +47,7 @@
 		271BBB5D1F77DFC7003507AC /* KDReplyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDReplyModel.swift; sourceTree = "<group>"; };
 		271BBB5F1F77E4A6003507AC /* KDReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDReplyCell.swift; sourceTree = "<group>"; };
 		271BBB611F77F9A4003507AC /* KDFormatDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFormatDate.swift; sourceTree = "<group>"; };
+		271C150A1F83D18900E23040 /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDBaseViewController.swift; sourceTree = "<group>"; };
 		2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUIKitUtil.swift; sourceTree = "<group>"; };
 		2768BA7A1F765D3000FE7BF3 /* KDConfigUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConfigUtil.swift; sourceTree = "<group>"; };
@@ -61,6 +67,10 @@
 		27B7A0611F7645A7006B184E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B7A0641F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B7A0661F7645A7006B184E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27CB24CD1F84923F004CEB00 /* basic.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = basic.css; sourceTree = "<group>"; };
+		27CB24CF1F8496C6004CEB00 /* mobile.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = mobile.css; sourceTree = "<group>"; };
+		27CB24D61F84C076004CEB00 /* topic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = topic.html; sourceTree = "<group>"; };
+		27CB24DA1F84C89B004CEB00 /* KDResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDResources.swift; sourceTree = "<group>"; };
 		3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
 		70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +273,7 @@
 			children = (
 				2768BA6F1F765BD500FE7BF3 /* App */,
 				2768BA711F765BFE00FE7BF3 /* Classes */,
+				27CB24D31F84C042004CEB00 /* Resources */,
 				2768BA701F765BE700FE7BF3 /* Utils */,
 				27B7A0611F7645A7006B184E /* Assets.xcassets */,
 				27B7A0661F7645A7006B184E /* Info.plist */,
@@ -270,6 +281,26 @@
 				27B7A05E1F7645A7006B184E /* Main.storyboard */,
 			);
 			path = v2ex;
+			sourceTree = "<group>";
+		};
+		27CB24CA1F8491F5004CEB00 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				27CB24CD1F84923F004CEB00 /* basic.css */,
+				27CB24CF1F8496C6004CEB00 /* mobile.css */,
+				271C150A1F83D18900E23040 /* style.css */,
+			);
+			path = CSS;
+			sourceTree = "<group>";
+		};
+		27CB24D31F84C042004CEB00 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27CB24CA1F8491F5004CEB00 /* CSS */,
+				27CB24DA1F84C89B004CEB00 /* KDResources.swift */,
+				27CB24D61F84C076004CEB00 /* topic.html */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A3D1BF19DBE22F7D385595C0 /* Pods */ = {
@@ -352,7 +383,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CB24D01F8496C6004CEB00 /* mobile.css in Resources */,
+				27CB24CE1F84923F004CEB00 /* basic.css in Resources */,
 				27B7A0651F7645A7006B184E /* LaunchScreen.storyboard in Resources */,
+				271C150B1F83D18900E23040 /* style.css in Resources */,
+				27CB24D71F84C076004CEB00 /* topic.html in Resources */,
 				27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */,
 				27B7A0601F7645A7006B184E /* Main.storyboard in Resources */,
 			);
@@ -427,6 +462,7 @@
 				271BBB5E1F77DFC7003507AC /* KDReplyModel.swift in Sources */,
 				271BBB5A1F77CE7E003507AC /* KDTopicDetailViewModel.swift in Sources */,
 				2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */,
+				27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */,
 				2768BA8A1F766B2100FE7BF3 /* KDTopicsViewController.swift in Sources */,
 				271BBB561F777E5D003507AC /* KDTopicCell.swift in Sources */,
 				271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */,
