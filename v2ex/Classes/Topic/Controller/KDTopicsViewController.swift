@@ -20,20 +20,11 @@ class KDTopicsViewController : KDBaseViewController {
     }
     
     @objc func refreshData() {
-        if nodeName == "all" {
-            viewModel.fetchTopicsLatest(success: { (data) in
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }) { (error) in
-                self.refreshControl.endRefreshing()
-            }
-        } else if nodeName == "hot" {
-            viewModel.fetchTopicsHot(success: { (data) in
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
-            }) { (error) in
-                self.refreshControl.endRefreshing()
-            }
+        viewModel.fetchTopicsWithNode(nodeName: nodeName!, success: { (data) in
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }) { (error) in
+            self.refreshControl.endRefreshing()
         }
     }
     

@@ -5,7 +5,7 @@
 //  Created by donghao on 2017/10/4.
 //  Copyright © 2017年 kyle. All rights reserved.
 //
-//  FIXME: 高度约束有问题，底部分割线
+//  FIXME: 高度约束有问题
 
 import UIKit
 
@@ -45,7 +45,6 @@ class KDSlideTapView: UIScrollView {
         super.init(frame: frame)
         currentIndex = 0
         showsHorizontalScrollIndicator = false
-        bounces = false
         setupView()
     }
     

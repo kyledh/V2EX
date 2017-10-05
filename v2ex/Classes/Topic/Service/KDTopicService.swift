@@ -10,8 +10,17 @@ import UIKit
 
 extension KDAPIClient {
 
-    func fetchTopicsLatest(success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
-        self.getRequestWithoutCache(path: "/api/topics/latest.json", params: [:], success: { (data) in
+    func fetchTopicsWithNode(nodeName: String, success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+        var path = "/api/topics/show.json"
+        var params: [String: AnyObject] = [:]
+        if nodeName == "all" {
+            path = "/api/topics/latest.json"
+        } else if nodeName == "hot" {
+            path = "/api/topics/hot.json"
+        } else {
+            params = ["node_name": nodeName as AnyObject]
+        }
+        self.getRequestWithoutCache(path: path, params: params, success: { (data) in
             if data is NSArray {
                 success(data as? NSArray)
             } else {
@@ -22,7 +31,7 @@ extension KDAPIClient {
         }
     }
     
-    func fetchTopicsHot(success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+    func fetchTopicsWithNode(nodeId: Int, success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
         self.getRequestWithoutCache(path: "/api/topics/hot.json", params: [:], success: { (data) in
             if data is NSArray {
                 success(data as? NSArray)
