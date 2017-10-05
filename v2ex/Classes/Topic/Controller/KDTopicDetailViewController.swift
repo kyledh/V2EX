@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SafariServices
 
 class KDTopicDetailViewController : KDBaseViewController {
     
@@ -18,6 +19,10 @@ class KDTopicDetailViewController : KDBaseViewController {
         title = "主题详情"
         setupView()
         loadData()
+    }
+    
+    deinit {
+        contentView.scrollView.removeObserver(self, forKeyPath: "contentSize")
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -43,6 +48,18 @@ class KDTopicDetailViewController : KDBaseViewController {
             make.edges.equalTo(view)
         }
         setupTableHeader()
+        let rightBarItem = UIBarButtonItem.init(image: UIImage.init(named: "kd_forward"), style: .plain, target: self, action: #selector(forwardWeb))
+        navigationItem.rightBarButtonItem = rightBarItem;
+    }
+    
+    @objc private func forwardWeb() {
+        let url = URL.init(string: viewModel.topic.url ?? "")
+        openURL(url!)
+    }
+    
+    private func openURL(_ url: URL) {
+        let safariViewController = SFSafariViewController.init(url: url)
+        present(safariViewController, animated: true, completion: nil)
     }
     
     private func loadData() {
@@ -114,6 +131,7 @@ class KDTopicDetailViewController : KDBaseViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.allowsLinkPreview = true
         contentView.scrollView.isScrollEnabled = false
+        contentView.navigationDelegate = self
         contentView.scrollView.addObserver(self, forKeyPath: "contentSize", options: [.old, .new], context: nil)
         return contentView
     }()
@@ -127,6 +145,19 @@ class KDTopicDetailViewController : KDBaseViewController {
         tableView.register(KDReplyCell.classForCoder(), forCellReuseIdentifier: "kd_reply_cell")
         return tableView
     }()
+}
+
+extension KDTopicDetailViewController : WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+        if url?.scheme == "http" || url?.scheme == "https" {
+            openURL(url!)
+            decisionHandler(.cancel)
+            return
+        }
+        decisionHandler(.allow)
+    }
 }
 
 // MARK: UITableViewDelegate

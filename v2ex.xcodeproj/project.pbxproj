@@ -34,6 +34,7 @@
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
 		27B7A0651F7645A7006B184E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */; };
+		27B7E1DD1F8609770004C89F /* KDLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E1DC1F8609770004C89F /* KDLayoutView.swift */; };
 		27CB24CE1F84923F004CEB00 /* basic.css in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24CD1F84923F004CEB00 /* basic.css */; };
 		27CB24D71F84C076004CEB00 /* topic.html in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24D61F84C076004CEB00 /* topic.html */; };
 		27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DA1F84C89B004CEB00 /* KDResources.swift */; };
@@ -71,6 +72,7 @@
 		27B7A0611F7645A7006B184E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B7A0641F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B7A0661F7645A7006B184E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27B7E1DC1F8609770004C89F /* KDLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLayoutView.swift; sourceTree = "<group>"; };
 		27CB24CD1F84923F004CEB00 /* basic.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = basic.css; sourceTree = "<group>"; };
 		27CB24D61F84C076004CEB00 /* topic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = topic.html; sourceTree = "<group>"; };
 		27CB24DA1F84C89B004CEB00 /* KDResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDResources.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				271BBB5B1F77D0B1003507AC /* KDBorderLineView.swift */,
+				27B7E1DC1F8609770004C89F /* KDLayoutView.swift */,
 				27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */,
 				2768BA781F765D2600FE7BF3 /* KDUIKitUtil.swift */,
 			);
@@ -478,6 +481,7 @@
 				2768BA8D1F774C0000FE7BF3 /* KDTopicModel.swift in Sources */,
 				271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */,
 				2768BA8F1F774C4D00FE7BF3 /* KDMemberModel.swift in Sources */,
+				27B7E1DD1F8609770004C89F /* KDLayoutView.swift in Sources */,
 				2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */,
 				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
 				2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */,
@@ -631,6 +635,8 @@
 			baseConfigurationReference = 3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = v2ex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -648,6 +654,8 @@
 			baseConfigurationReference = 49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = v2ex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

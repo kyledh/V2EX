@@ -1,16 +1,18 @@
 # V2EX
 
-> Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)
+> Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)
 
-## RxSwift
+练手项目，V2EX 第三方客户端
 
-想学习，但是还没搞懂，只怪 RAC 学艺不精，等我再看遍 RAC...
+越看越觉得做的好丑...
+
+提供的 API 略少，原来大神们都是手动解析的 HTML，毕竟我懒，可能要弃坑了...
 
 ## TODO
 
 1. 基本功能
-   - 主题列表
-   - 主题详情
+   - ~~主题列表~~
+   - ~~主题详情~~
    - 评论列表
    - 登录
    - 回复
@@ -29,6 +31,6 @@
 
 ## SCREENSHORTS
 
-<img src="https://i.loli.net/2017/09/24/59c7c8fc531b0.png" width="400px" />
+<img src="https://i.loli.net/2017/10/05/59d5e86b602a1.png" width="400px" />
 
-<img src="https://i.loli.net/2017/09/24/59c7c8fc8f849.png" width="400px" />
+<img src="https://i.loli.net/2017/10/05/59d5e86b57e39.png" width="400px" />

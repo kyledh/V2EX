@@ -33,8 +33,11 @@ class KDSlideTapView: UIScrollView {
         didSet {
             let index = currentIndex + 1
             if index > 0 && index <= numberOfRows {
-                let button = viewWithTag(index) as! UIButton
-                setSelectedItem(button)
+                let tagView = viewWithTag(index)
+                if (tagView?.isKind(of: UIButton.self))! {
+                    setSelectedItem(tagView as! UIButton)
+                    scrollToRowAtIndex(index: index - 1)
+                }
             }
         }
     }
@@ -64,6 +67,21 @@ class KDSlideTapView: UIScrollView {
             slideTapDelegate!.slideTapView(in: self, didSelectAtIndex: button.tag - 1)
         }
         currentIndex = button.tag - 1
+    }
+    
+    func scrollToRowAtIndex(index: Int) {
+        let screenWidth = UIScreen.main.bounds.size.width
+        let width = selectedItem!.right() + 5 - screenWidth
+        var left: CGFloat = 0
+        if width > 0 {
+            if contentSize.width - screenWidth > width {
+                left = width
+            } else {
+                left = contentSize.width
+            }
+            left += 5
+        }
+        setContentOffset(CGPoint.init(x: left, y: 0), animated: true)
     }
     
     // MARK: Private Method
