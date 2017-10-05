@@ -10,7 +10,7 @@ import UIKit
 
 import Kingfisher
 
-class KDTopicCell: UITableViewCell {
+class KDTopicCell : UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

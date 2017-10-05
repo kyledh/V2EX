@@ -8,7 +8,7 @@
 
 import HandyJSON
 
-class KDTopicModel: HandyJSON {
+class KDTopicModel : HandyJSON {
     
     var content: String?
     var contentRendered: String?

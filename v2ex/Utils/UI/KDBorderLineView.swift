@@ -15,7 +15,7 @@ extension UIView {
     func borderLine() -> UIView {
         let borderLine = UIView()
         borderLine.backgroundColor = KDUIKitUtil.HEXCOLOR("e2e2e2")
-        self.addSubview(borderLine)
+        addSubview(borderLine)
         return borderLine
     }
 

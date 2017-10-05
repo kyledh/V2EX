@@ -8,7 +8,7 @@
 
 import HandyJSON
 
-class KDReplyModel: HandyJSON {
+class KDReplyModel : HandyJSON {
 
     var content: String?
     var contentRendered: String?

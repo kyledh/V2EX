@@ -9,15 +9,15 @@
 import UIKit
 import WebKit
 
-class KDTopicDetailViewController: KDBaseViewController {
+class KDTopicDetailViewController : KDBaseViewController {
     
     var viewModel = KDTopicDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "主题详情"
-        p_setupView()
-        p_loadData()
+        setupView()
+        loadData()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -37,15 +37,15 @@ class KDTopicDetailViewController: KDBaseViewController {
     }
     
     // MARK: Private Method
-    private func p_setupView() {
+    private func setupView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-        p_setupTableHeader()
+        setupTableHeader()
     }
     
-    private func p_loadData() {
+    private func loadData() {
         let topic = viewModel.topic
         titleLabel.text = topic.title
         descriptionLabel.text = "By \(topic.member?.username ?? "") at \(topic.created?.formatDate() ?? "")"
@@ -59,7 +59,7 @@ class KDTopicDetailViewController: KDBaseViewController {
         }
     }
     
-    private func p_setupTableHeader() {
+    private func setupTableHeader() {
         tableView.tableHeaderView = tableHeaderView
         tableHeaderView.addSubview(titleLabel)
         tableHeaderView.addSubview(descriptionLabel)
@@ -130,7 +130,7 @@ class KDTopicDetailViewController: KDBaseViewController {
 }
 
 // MARK: UITableViewDelegate
-extension KDTopicDetailViewController: UITableViewDelegate {
+extension KDTopicDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < viewModel.topicReplies.count {
@@ -151,7 +151,7 @@ extension KDTopicDetailViewController: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource
-extension KDTopicDetailViewController: UITableViewDataSource {
+extension KDTopicDetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.topicReplies.count;

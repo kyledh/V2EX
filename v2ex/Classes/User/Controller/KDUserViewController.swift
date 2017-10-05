@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KDUserViewController: KDBaseViewController {
+class KDUserViewController : KDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

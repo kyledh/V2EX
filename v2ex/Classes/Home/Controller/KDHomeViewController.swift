@@ -10,29 +10,46 @@ import UIKit
 
 import SnapKit
 
-class KDHomeViewController: KDBaseViewController {
+class KDHomeViewController : KDBaseViewController {
     
-    var viewControllers = [UIViewController]()
-
+    var viewControllers = [KDTopicsViewController]()
+    var viewModel = KDNodesVIewModel()
+    var indexOfTransitionTo: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "首页";
-        p_setViewControllers()
-        p_setupView()
-    }
-    
-    // MARK: Private Method
-    private func p_setupView() {
-        addChildViewController(pageViewController)
-        view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
-        pageViewController.view.snp.makeConstraints { (make) in
-            make.edges.equalTo(view)
+        setupView()
+        viewModel.fetchHotNodes(success: { (nodes) in
+            self.slideTapView.reloadData()
+            self.setViewControllers()
+        }) { (error) in
         }
     }
     
-    private func p_setViewControllers() {
-        viewControllers.append(KDTopicsViewController())
+    // MARK: Private Method
+    private func setupView() {
+        slideTapView.bottomLine()
+        addChildViewController(pageViewController)
+        view.addSubview(pageViewController.view)
+        view.addSubview(slideTapView)
+        pageViewController.didMove(toParentViewController: self)
+        slideTapView.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(view)
+            make.height.equalTo(35)
+        }
+        pageViewController.view.snp.makeConstraints { (make) in
+            make.top.equalTo(slideTapView.snp.bottom)
+            make.left.right.bottom.equalTo(view)
+        }
+    }
+    
+    private func setViewControllers() {
+        for node in viewModel.nodes {
+            let controller = KDTopicsViewController()
+            controller.nodeName = node.name
+            viewControllers.append(controller)
+        }
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
     }
     
@@ -44,12 +61,29 @@ class KDHomeViewController: KDBaseViewController {
         pageViewController.dataSource = self
         return pageViewController
     }()
+    
+    private lazy var slideTapView: KDSlideTapView = {
+        let slideTapView = KDSlideTapView()
+        slideTapView.slideTapDelegate = self
+        return slideTapView
+    }()
 }
 
 // MARK: UIPageViewControllerDelegate
 extension KDHomeViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if finished && completed {
+            slideTapView.currentIndex = indexOfTransitionTo
+        } else {
+            let controller = previousViewControllers.first as! KDTopicsViewController
+            indexOfTransitionTo = viewControllers.index(of: controller)
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        let controller = pendingViewControllers.first as! KDTopicsViewController
+        indexOfTransitionTo = viewControllers.index(of: controller)
     }
 }
 
@@ -57,7 +91,8 @@ extension KDHomeViewController: UIPageViewControllerDelegate {
 extension KDHomeViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = viewControllers.index(of: viewController)
+        let controller = viewController as! KDTopicsViewController
+        var index = viewControllers.index(of: controller)
         if index == NSNotFound {
             return nil;
         }
@@ -69,7 +104,8 @@ extension KDHomeViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = viewControllers.index(of: viewController)
+        let controller = viewController as! KDTopicsViewController
+        var index = viewControllers.index(of: controller)
         if index == NSNotFound {
             return nil;
         }
@@ -79,8 +115,26 @@ extension KDHomeViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
+}
+
+// MARK: KDSlideTapView
+extension KDHomeViewController : KDSlideTapDelegate {
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return viewControllers.count
+    func slideTapViewNumberOfRows(_ slideTapView: KDSlideTapView) -> Int {
+        return viewModel.nodes.count
+    }
+    
+    func slideTapView(_ slideTapView: KDSlideTapView, titleAtIndex index: Int) -> String {
+        return viewModel.nodes[index].title ?? ""
+    }
+    
+    func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int) {
+        let direction: UIPageViewControllerNavigationDirection?
+        if index > slideTapView.currentIndex {
+            direction = .forward
+        } else {
+            direction = .reverse
+        }
+        pageViewController.setViewControllers([viewControllers[index]], direction: direction!, animated: true, completion: nil)
     }
 }

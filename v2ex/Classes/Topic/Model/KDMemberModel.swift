@@ -8,7 +8,7 @@
 
 import HandyJSON
 
-class KDMemberModel: HandyJSON {
+class KDMemberModel : HandyJSON {
     
     var avatarLarge: String?
     var avatarMini: String?

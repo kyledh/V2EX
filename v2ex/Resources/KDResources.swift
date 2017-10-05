@@ -13,7 +13,7 @@ class KDResources {
     class func topicHTML(_ content: String) -> String {
         let resources = KDResources()
         var topicHTML = try! String(contentsOfFile: Bundle.main.path(forResource: "topic", ofType: "html")!, encoding: .utf8)
-        let topicCSS = resources.basicCSS() + resources.styleCSS() + resources.mobileCSS()
+        let topicCSS = resources.basicCSS() + resources.mobileCSS()
         topicHTML = topicHTML.replacingOccurrences(of: "CONTENT_CSS", with: topicCSS)
         topicHTML = topicHTML.replacingOccurrences(of: "CONTENT_BODY", with: content)
         return topicHTML
@@ -22,11 +22,6 @@ class KDResources {
     private func basicCSS() -> String {
         let basicCSS = try! String(contentsOfFile: Bundle.main.path(forResource: "basic", ofType: "css")!, encoding: .utf8)
         return basicCSS;
-    }
-    
-    private func styleCSS() -> String {
-        let styleCSS = try! String(contentsOfFile: Bundle.main.path(forResource: "mobile", ofType: "css")!, encoding: .utf8)
-        return styleCSS;
     }
     
     private func mobileCSS() -> String {

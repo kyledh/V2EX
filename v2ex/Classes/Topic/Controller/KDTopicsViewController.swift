@@ -8,31 +8,40 @@
 
 import UIKit
 
-class KDTopicsViewController: KDBaseViewController {
+class KDTopicsViewController : KDBaseViewController {
     
     var viewModel = KDTopicsViewModel()
+    var nodeName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        p_setupView()
+        setupView()
         refreshData()
     }
     
     @objc func refreshData() {
-        refreshControl.beginRefreshing()
-        viewModel.fetchTopicLatest(success: { (data) in
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
-        }) { (error) in
-            self.refreshControl.endRefreshing()
+        if nodeName == "all" {
+            viewModel.fetchTopicsLatest(success: { (data) in
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }) { (error) in
+                self.refreshControl.endRefreshing()
+            }
+        } else if nodeName == "hot" {
+            viewModel.fetchTopicsHot(success: { (data) in
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }) { (error) in
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     
     // MARK: Private Method
-    private func p_setupView() {
+    private func setupView() {
         view.addSubview(tableView)
         tableView.addSubview(refreshControl)
-        tableView .snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
     }
@@ -57,7 +66,7 @@ class KDTopicsViewController: KDBaseViewController {
 }
 
 // MARK: UITableViewDelegate
-extension KDTopicsViewController: UITableViewDelegate {
+extension KDTopicsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < viewModel.topics.count {
@@ -82,7 +91,7 @@ extension KDTopicsViewController: UITableViewDelegate {
 }
 
 // MARK: UITableViewDataSource
-extension KDTopicsViewController: UITableViewDataSource {
+extension KDTopicsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.topics.count;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KDReplyCell: UITableViewCell {
+class KDReplyCell : UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

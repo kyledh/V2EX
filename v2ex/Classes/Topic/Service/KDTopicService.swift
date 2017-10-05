@@ -21,6 +21,18 @@ extension KDAPIClient {
             failture(error)
         }
     }
+    
+    func fetchTopicsHot(success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+        self.getRequestWithoutCache(path: "/api/topics/hot.json", params: [:], success: { (data) in
+            if data is NSArray {
+                success(data as? NSArray)
+            } else {
+                failture(nil)
+            }
+        }) { (error) in
+            failture(error)
+        }
+    }
 
     func fetchTopicReplies(params: [String: AnyObject], success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
         self.getRequestWithoutCache(path: "/api/replies/show.json", params: params, success: { (data) in
