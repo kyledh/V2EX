@@ -20,27 +20,36 @@ class KDHomeViewController : KDBaseViewController {
         super.viewDidLoad()
         title = "首页";
         setupView()
-        viewModel.fetchHotNodes(success: { (nodes) in
-            self.slideTapView.reloadData()
-            self.setViewControllers()
-        }) { (error) in
-        }
+        reloadData()
     }
     
     // MARK: Private Method
     private func setupView() {
-        slideTapView.bottomLine()
         addChildViewController(pageViewController)
-        view.addSubview(pageViewController.view)
         view.addSubview(slideTapView)
+        view.addSubview(separateLine)
+        view.addSubview(pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         slideTapView.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(view)
-            make.height.equalTo(35)
+            make.height.equalTo(30)
+        }
+        separateLine.snp.makeConstraints { (make) in
+            make.top.equalTo(slideTapView.snp.bottom)
+            make.left.right.equalTo(view)
+            make.height.equalTo(0.5)
         }
         pageViewController.view.snp.makeConstraints { (make) in
-            make.top.equalTo(slideTapView.snp.bottom)
+            make.top.equalTo(separateLine.snp.bottom)
             make.left.right.bottom.equalTo(view)
+        }
+    }
+    
+    private func reloadData() {
+        viewModel.fetchHotNodes(success: { (nodes) in
+            self.slideTapView.reloadData()
+            self.setViewControllers()
+        }) { (error) in
         }
     }
     
@@ -66,6 +75,12 @@ class KDHomeViewController : KDBaseViewController {
         let slideTapView = KDSlideTapView()
         slideTapView.slideTapDelegate = self
         return slideTapView
+    }()
+    
+    private lazy var separateLine: UIView = {
+        let separateLine = UIView()
+        separateLine.backgroundColor = KDUIKitUtil.HEXCOLOR("e2e2e2")
+        return separateLine
     }()
 }
 

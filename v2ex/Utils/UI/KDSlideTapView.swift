@@ -5,7 +5,7 @@
 //  Created by donghao on 2017/10/4.
 //  Copyright © 2017年 kyle. All rights reserved.
 //
-//  FIXME: 高度约束有问题，滑动有问题，底部分割线
+//  FIXME: 高度约束有问题，底部分割线
 
 import UIKit
 
@@ -18,16 +18,11 @@ protocol KDSlideTapDelegate : NSObjectProtocol {
     
     // optional
     func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int)
-    func slideTapView(in slideTapView: KDSlideTapView, itemWidthAtIndex index: Int) -> Int
 }
 
 extension KDSlideTapDelegate {
     
     func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int) {
-    }
-    
-    func slideTapView(in slideTapView: KDSlideTapView, itemWidthAtIndex index: Int) -> Int {
-        return 45
     }
 }
 
@@ -50,6 +45,7 @@ class KDSlideTapView: UIScrollView {
         super.init(frame: frame)
         currentIndex = 0
         showsHorizontalScrollIndicator = false
+        bounces = false
         setupView()
     }
     
@@ -65,7 +61,9 @@ class KDSlideTapView: UIScrollView {
         if button == selectedItem {
             return
         }
-        slideTapDelegate?.slideTapView(in: self, didSelectAtIndex: button.tag - 1)
+        if slideTapDelegate != nil {
+            slideTapDelegate!.slideTapView(in: self, didSelectAtIndex: button.tag - 1)
+        }
         currentIndex = button.tag - 1
     }
     
@@ -73,18 +71,21 @@ class KDSlideTapView: UIScrollView {
     private func setupView() {
         addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(5)
+            make.top.equalTo(self).offset(2.5)
             make.left.equalTo(self).offset(5)
-            make.right.greaterThanOrEqualTo(self).offset(-5)
-            make.bottom.equalTo(self).offset(-5)
+            make.bottom.equalTo(self).offset(-2.5)
         }
     }
     
     private func setItems() {
-        numberOfRows = slideTapDelegate?.slideTapViewNumberOfRows(self) ?? 0
+        removeArrangedSubviews()
+        if slideTapDelegate == nil {
+            return
+        }
+        numberOfRows = slideTapDelegate!.slideTapViewNumberOfRows(self)
         for index in 0 ..< numberOfRows {
             let button = tagButton()
-            let title = slideTapDelegate?.slideTapView(self, titleAtIndex: index) ?? ""
+            let title = slideTapDelegate!.slideTapView(self, titleAtIndex: index)
             button.setTitle("  \(title)  ", for: UIControlState.normal)
             button.tag = index + 1
             stackView.addArrangedSubview(button)
@@ -94,12 +95,15 @@ class KDSlideTapView: UIScrollView {
             let button = buttons[currentIndex] as! UIButton
             setSelectedItem(button)
         }
+        layoutIfNeeded()
+        contentSize = CGSize.init(width: stackView.frame.width + 10, height: 0)
     }
     
     private func tagButton() -> UIButton {
         let button = UIButton()
         button.setTitleColor(KDUIKitUtil.HEXCOLOR("555555"), for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        button.backgroundColor = KDUIKitUtil.HEXCOLOR("f5f5f5")
         button.addTarget(self, action: #selector(tapAction(_:)), for: UIControlEvents.touchUpInside)
         button.snp.makeConstraints { (make) in
             make.height.equalTo(25)
@@ -110,13 +114,21 @@ class KDSlideTapView: UIScrollView {
     private func setSelectedItem(_ button: UIButton) {
         let oldButton = selectedItem
         oldButton?.isSelected = false
-        oldButton?.backgroundColor = .clear
+        oldButton?.backgroundColor = KDUIKitUtil.HEXCOLOR("f5f5f5")
         oldButton?.setTitleColor(KDUIKitUtil.HEXCOLOR("555555"), for: UIControlState.normal)
         
         button.isSelected = true
         button.backgroundColor = KDUIKitUtil.HEXCOLOR("333344")
         button.setTitleColor(KDUIKitUtil.HEXCOLOR("ffffff"), for: UIControlState.normal)
         selectedItem = button
+    }
+    
+    private func removeArrangedSubviews() {
+        let views = stackView.arrangedSubviews
+        for button in views {
+            stackView.removeArrangedSubview(button)
+            button.removeFromSuperview()
+        }
     }
     
     private lazy var stackView: UIStackView = {
