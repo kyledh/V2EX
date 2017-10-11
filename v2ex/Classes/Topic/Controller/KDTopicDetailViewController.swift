@@ -141,7 +141,10 @@ class KDTopicDetailViewController : KDBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = .none
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         tableView.register(KDReplyCell.classForCoder(), forCellReuseIdentifier: "kd_reply_cell")
         return tableView
     }()

@@ -48,6 +48,9 @@ class KDSlideTapView: UIScrollView {
         super.init(frame: frame)
         currentIndex = 0
         showsHorizontalScrollIndicator = false
+        if #available(iOS 11.0, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
         setupView()
     }
     

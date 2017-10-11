@@ -30,6 +30,7 @@
 		2768BA911F774C7F00FE7BF3 /* KDNodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA901F774C7F00FE7BF3 /* KDNodeModel.swift */; };
 		2768BA991F774EDC00FE7BF3 /* KDTopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */; };
 		2768BA9B1F77508900FE7BF3 /* KDTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA9A1F77508900FE7BF3 /* KDTopicsViewModel.swift */; };
+		27B70D2D1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */; };
 		27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7A05A1F7645A7006B184E /* AppDelegate.swift */; };
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		2768BA901F774C7F00FE7BF3 /* KDNodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNodeModel.swift; sourceTree = "<group>"; };
 		2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicService.swift; sourceTree = "<group>"; };
 		2768BA9A1F77508900FE7BF3 /* KDTopicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicsViewModel.swift; sourceTree = "<group>"; };
+		27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDBaseLargeTitlesViewController.swift; sourceTree = "<group>"; };
 		27B7A0571F7645A7006B184E /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B7A05A1F7645A7006B184E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27B7A05F1F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */,
+				27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 			files = (
 				271BBB621F77F9A4003507AC /* KDFormatDate.swift in Sources */,
 				2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */,
+				27B70D2D1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift in Sources */,
 				2768BA7B1F765D3000FE7BF3 /* KDConfigUtil.swift in Sources */,
 				2768BA911F774C7F00FE7BF3 /* KDNodeModel.swift in Sources */,
 				271BBB5C1F77D0B1003507AC /* KDBorderLineView.swift in Sources */,
