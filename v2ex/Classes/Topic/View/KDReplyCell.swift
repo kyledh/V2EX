@@ -21,10 +21,11 @@ class KDReplyCell : UITableViewCell {
     
     // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDReplyModel) {
-        let url = URL(string: "https:" + (model.member?.avatarMini)!)
+        let url = URL(string: "https:" + (model.member?.avatarLarge)!)
         avatorImageView.kf.setImage(with: url)
         creatorLabel.text = model.member?.username
         timeLabel.text = model.created?.formatDate()
+        tagLabel.text = model.tag
         contentLabel.text = model.content
         floorLabel.text = " \(model.floor ?? 0) "
         layoutIfNeeded()
@@ -36,6 +37,7 @@ class KDReplyCell : UITableViewCell {
         contentView.addSubview(avatorImageView)
         contentView.addSubview(creatorLabel)
         contentView.addSubview(timeLabel)
+        contentView.addSubview(tagLabel)
         contentView.addSubview(contentLabel)
         contentView.addSubview(floorLabel)
         avatorImageView.snp.makeConstraints { (make) in
@@ -50,6 +52,10 @@ class KDReplyCell : UITableViewCell {
         timeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(10)
             make.left.equalTo(creatorLabel.snp.right).offset(5)
+            make.right.lessThanOrEqualTo(tagLabel.snp.left).offset(-10)
+        }
+        tagLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(contentView).offset(10)
             make.right.lessThanOrEqualTo(floorLabel.snp.left).offset(-10)
         }
         contentLabel.snp.makeConstraints { (make) in
@@ -76,6 +82,7 @@ class KDReplyCell : UITableViewCell {
        var creatorLabel = UILabel()
         creatorLabel.textColor = KDUIKitUtil.HEXCOLOR("778087")
         creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        creatorLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         return creatorLabel
     }()
     
@@ -84,6 +91,13 @@ class KDReplyCell : UITableViewCell {
         timeLabel.textColor = KDUIKitUtil.HEXCOLOR("cccccc")
         timeLabel.font = UIFont.systemFont(ofSize: 12)
         return timeLabel
+    }()
+    
+    private lazy var tagLabel: UILabel = {
+        var tagLabel = UILabel()
+        tagLabel.textColor = KDUIKitUtil.HEXCOLOR("778087")
+        tagLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        return tagLabel
     }()
     
     private lazy var contentLabel: UILabel = {

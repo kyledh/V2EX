@@ -18,6 +18,7 @@ class KDReplyModel : HandyJSON {
     var member: KDMemberModel?
     var thanks: Int?
     var floor: Int?
+    var tag: String?
     
     required init() {}
     

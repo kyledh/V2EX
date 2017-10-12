@@ -23,7 +23,7 @@ class KDTopicCell : UITableViewCell {
     
     // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDTopicModel) {
-        let url = URL(string: "https:" + (model.member?.avatarNormal)!)
+        let url = URL(string: "https:" + (model.member?.avatarLarge)!)
         avatorImageView.kf.setImage(with: url)
         titleLabel.text = model.title
         nodeLabel.text = " \(model.node?.title ?? "") "
