@@ -41,6 +41,14 @@ class KDTopicDetailViewController : KDBaseViewController {
         }
     }
     
+    override var previewActionItems: [UIPreviewActionItem] {
+        let cancel = UIPreviewAction.init(title: "取消",
+                                          style: .destructive,
+                                          handler: {(cacel: UIPreviewAction, self: UIViewController) in print("cancel")}
+        )
+        return [cancel]
+    }
+    
     // MARK: Private Method
     private func setupView() {
         view.addSubview(tableView)

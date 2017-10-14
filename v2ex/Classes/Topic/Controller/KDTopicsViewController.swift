@@ -17,6 +17,9 @@ class KDTopicsViewController : KDBaseViewController {
         super.viewDidLoad()
         setupView()
         refreshData()
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
     }
     
     @objc func refreshData() {
@@ -86,5 +89,28 @@ extension KDTopicsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.topics.count;
+    }
+}
+
+// MARK: UIViewControllerPreviewingDelegate
+extension KDTopicsViewController : UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if tableView.frame.contains(location) {
+            let indexPath = tableView.indexPathForRow(at: location)!
+            if indexPath.row < viewModel.topics.count {
+                let cell = tableView .cellForRow(at: indexPath)
+                previewingContext.sourceRect = cell!.frame
+                let topicDetailViewController = KDTopicDetailViewController()
+                topicDetailViewController.viewModel.topic = viewModel.topics[indexPath.row]
+                topicDetailViewController.hidesBottomBarWhenPushed = true
+                return topicDetailViewController
+            }
+        }
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: false)
     }
 }
