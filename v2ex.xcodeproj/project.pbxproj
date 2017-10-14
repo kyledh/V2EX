@@ -40,6 +40,7 @@
 		27CB24D71F84C076004CEB00 /* topic.html in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24D61F84C076004CEB00 /* topic.html */; };
 		27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DA1F84C89B004CEB00 /* KDResources.swift */; };
 		27CB24DD1F84E039004CEB00 /* KDSlideTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */; };
+		27F5B0A51F92566800446B4C /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A41F92566800446B4C /* KDLoginViewController.swift */; };
 		AA245975717B1D29D90910C3 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		27CB24D61F84C076004CEB00 /* topic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = topic.html; sourceTree = "<group>"; };
 		27CB24DA1F84C89B004CEB00 /* KDResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDResources.swift; sourceTree = "<group>"; };
 		27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSlideTapView.swift; sourceTree = "<group>"; };
+		27F5B0A41F92566800446B4C /* KDLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
 		70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
+				27F5B0A41F92566800446B4C /* KDLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271BBB621F77F9A4003507AC /* KDFormatDate.swift in Sources */,
+				27F5B0A51F92566800446B4C /* KDLoginViewController.swift in Sources */,
 				2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */,
 				27B70D2D1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift in Sources */,
 				2768BA7B1F765D3000FE7BF3 /* KDConfigUtil.swift in Sources */,

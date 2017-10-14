@@ -15,6 +15,7 @@ class KDBaseViewController : UIViewController {
         edgesForExtendedLayout = []
         view.backgroundColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.black
+        presentLeftBar()
     }
     
     func setNavigationBarTransparent(_ bool: Bool) {
@@ -27,5 +28,16 @@ class KDBaseViewController : UIViewController {
             navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
             navigationController?.navigationBar.shadowImage = nil
         }
+    }
+    
+    // MARK: Private Method
+    private func presentLeftBar() {
+        if presentingViewController != nil && navigationController?.viewControllers.count == 1 {
+            navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(dismissViewController))
+        }
+    }
+    
+    @objc private func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }

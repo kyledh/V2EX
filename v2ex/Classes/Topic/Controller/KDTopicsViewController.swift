@@ -96,11 +96,15 @@ extension KDTopicsViewController : UITableViewDataSource {
 extension KDTopicsViewController : UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if tableView.frame.contains(location) {
-            let indexPath = tableView.indexPathForRow(at: location)!
+        var point = location
+        point.y += tableView.contentOffset.y
+        if tableView.layer.contains(point) {
+            let indexPath = tableView.indexPathForRow(at: point)!
             if indexPath.row < viewModel.topics.count {
                 let cell = tableView .cellForRow(at: indexPath)
-                previewingContext.sourceRect = cell!.frame
+                var sourceRect = cell?.frame
+                sourceRect?.origin.y -= tableView.contentOffset.y
+                previewingContext.sourceRect = sourceRect ?? CGRect.zero
                 let topicDetailViewController = KDTopicDetailViewController()
                 topicDetailViewController.viewModel.topic = viewModel.topics[indexPath.row]
                 topicDetailViewController.hidesBottomBarWhenPushed = true
