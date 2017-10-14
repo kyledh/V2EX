@@ -74,15 +74,15 @@ class KDSlideTapView: UIScrollView {
     
     func scrollToRowAtIndex(index: Int) {
         let screenWidth = UIScreen.main.bounds.size.width
-        let width = selectedItem!.right() + 5 - screenWidth
+        let width = selectedItem!.left() + selectedItem!.width() / 2 - screenWidth / 2
         var left: CGFloat = 0
         if width > 0 {
             if contentSize.width - screenWidth > width {
-                left = width
+                // 左右侧间距
+                left = width + 5
             } else {
-                left = contentSize.width
+                left = contentSize.width - screenWidth
             }
-            left += 5
         }
         setContentOffset(CGPoint.init(x: left, y: 0), animated: true)
     }
