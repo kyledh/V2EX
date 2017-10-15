@@ -27,6 +27,8 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
     }
     
     @objc private func jumpSettingViewController() {
+        let settingViewController = KDSettingViewController()
+        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @objc private func jumpLoginViewController() {
@@ -36,7 +38,7 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
     
     // MARK: Lazy Loading
     private lazy var loginButton: UIButton = {
-        let button = UIButton()
+        var button = UIButton()
         button.setTitle("  前往登录  ", for: .normal)
         button.setTitleColor(KDUIKitUtil.HEXCOLOR("555566"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)

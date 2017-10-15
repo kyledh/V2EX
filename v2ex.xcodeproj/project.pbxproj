@@ -41,6 +41,7 @@
 		27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DA1F84C89B004CEB00 /* KDResources.swift */; };
 		27CB24DD1F84E039004CEB00 /* KDSlideTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */; };
 		27F5B0A51F92566800446B4C /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A41F92566800446B4C /* KDLoginViewController.swift */; };
+		27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */; };
 		AA245975717B1D29D90910C3 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		27CB24DA1F84C89B004CEB00 /* KDResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDResources.swift; sourceTree = "<group>"; };
 		27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSlideTapView.swift; sourceTree = "<group>"; };
 		27F5B0A41F92566800446B4C /* KDLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
+		27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
 		3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
 		70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,7 @@
 				2768BA721F765C0600FE7BF3 /* Base */,
 				2768BA811F765F5C00FE7BF3 /* Home */,
 				2768BA731F765C0B00FE7BF3 /* Main */,
+				27F5B0A61F93083400446B4C /* Setting */,
 				2768BA931F774E8C00FE7BF3 /* Topic */,
 				2768BA821F765F6100FE7BF3 /* User */,
 			);
@@ -148,8 +151,8 @@
 		2768BA721F765C0600FE7BF3 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */,
 				27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */,
+				2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -218,8 +221,8 @@
 		2768BA861F765FAD00FE7BF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
 				27F5B0A41F92566800446B4C /* KDLoginViewController.swift */,
+				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +337,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		27F5B0A61F93083400446B4C /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				27F5B0A71F93083A00446B4C /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		27F5B0A71F93083A00446B4C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A3D1BF19DBE22F7D385595C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +399,7 @@
 		27B7A04F1F7645A7006B184E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = KD;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = kyle;
@@ -501,6 +521,7 @@
 				2768BA8A1F766B2100FE7BF3 /* KDTopicsViewController.swift in Sources */,
 				271BBB561F777E5D003507AC /* KDTopicCell.swift in Sources */,
 				271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */,
+				27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */,
 				27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */,
 				2768BA791F765D2600FE7BF3 /* KDUIKitUtil.swift in Sources */,
 				2763DCF81F8522F20005DFAC /* KDNodesVIewModel.swift in Sources */,

@@ -18,9 +18,9 @@ class KDMainViewController : UITabBarController {
         let userNavigationController = UINavigationController.init(rootViewController: KDUserViewController())
         
         homeNavigationController.tabBarItem.title = "首页"
-        homeNavigationController.tabBarItem.image = UIImage.init(imageLiteralResourceName: "kd_home")
+        homeNavigationController.tabBarItem.image = #imageLiteral(resourceName: "kd_home")
         userNavigationController.tabBarItem.title = "个人"
-        userNavigationController.tabBarItem.image = UIImage.init(imageLiteralResourceName: "kd_user")
+        userNavigationController.tabBarItem.image = #imageLiteral(resourceName: "kd_user")
         
         viewControllers = [homeNavigationController,
                                 userNavigationController]

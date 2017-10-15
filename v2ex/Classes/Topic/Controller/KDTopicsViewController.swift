@@ -46,7 +46,7 @@ class KDTopicsViewController : KDBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = .none
         tableView.register(KDTopicCell.classForCoder(), forCellReuseIdentifier: "kd_topic_cell")
         return tableView
     }()

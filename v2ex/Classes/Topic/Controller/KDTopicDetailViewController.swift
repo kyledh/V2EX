@@ -44,7 +44,8 @@ class KDTopicDetailViewController : KDBaseViewController {
     override var previewActionItems: [UIPreviewActionItem] {
         let cancel = UIPreviewAction.init(title: "取消",
                                           style: .destructive,
-                                          handler: {(cacel: UIPreviewAction, self: UIViewController) in print("cancel")}
+                                          handler: {(cacel: UIPreviewAction, self: UIViewController) in
+                                            print("cancel")}
         )
         return [cancel]
     }
@@ -56,7 +57,7 @@ class KDTopicDetailViewController : KDBaseViewController {
             make.edges.equalTo(view)
         }
         setupTableHeader()
-        let rightBarItem = UIBarButtonItem.init(image: UIImage.init(named: "kd_forward"), style: .plain, target: self, action: #selector(forwardWeb))
+        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_forward"), style: .plain, target: self, action: #selector(forwardWeb))
         navigationItem.rightBarButtonItem = rightBarItem;
     }
     
@@ -150,9 +151,6 @@ class KDTopicDetailViewController : KDBaseViewController {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
         tableView.separatorStyle = .none
-        if #available(iOS 11.0, *) {
-            tableView.contentInsetAdjustmentBehavior = .never
-        }
         tableView.register(KDReplyCell.classForCoder(), forCellReuseIdentifier: "kd_reply_cell")
         return tableView
     }()

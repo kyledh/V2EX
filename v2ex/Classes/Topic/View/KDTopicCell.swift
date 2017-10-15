@@ -18,7 +18,7 @@ class KDTopicCell : UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        p_setupView()
+        setupView()
     }
     
     // FIXME: 不合理，应该使用 Struts
@@ -33,7 +33,7 @@ class KDTopicCell : UITableViewCell {
     }
     
     // MARK: Private Method
-    private func p_setupView() {
+    private func setupView() {
         contentView.bottomLine()
         contentView.addSubview(avatorImageView)
         contentView.addSubview(titleLabel)
