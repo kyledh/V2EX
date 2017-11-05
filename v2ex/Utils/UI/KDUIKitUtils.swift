@@ -1,5 +1,5 @@
 //
-//  KDUIKitMacros.swift
+//  KDUIKitUtils.swift
 //  qducc
 //
 //  Created by donghao on 2017/9/23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KDUIKitUtil {
+class KDUIKitUtils {
     
     class func SCREEN_WIDTH() -> CGFloat {
         return UIScreen.main.bounds.size.width

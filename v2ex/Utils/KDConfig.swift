@@ -1,5 +1,5 @@
 //
-//  KDConfigUtil.swift
+//  KDConfig.swift
 //  qducc
 //
 //  Created by donghao on 2017/9/23.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-class KDConfigUtil {
+class KDConfig {
     
     class func APIHost() -> String {
-        let host: String = "https://www.v2ex.com"
+        let host: String = "https://www.v2ex.com/"
         return host
     }
 

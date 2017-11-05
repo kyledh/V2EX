@@ -14,7 +14,13 @@ class KDNodesVIewModel {
     
     func fetchHotNodes(success: @escaping (_ responseObject: [KDNodeModel]) -> (), failture: @escaping (_ error: NSError?) -> ()) {
         KDAPIClient.sharedClient.fetchHotNodes(success: { (data) in
-            self.nodes = [KDNodeModel].deserialize(from: data) as! [KDNodeModel]
+            for i in data! {
+                let item = i as! [String: String];
+                let node = KDNodeModel()
+                node.name = item["name"];
+                node.title = item["title"];
+                self.nodes.append(node);
+            }
             success(self.nodes)
         }) { (error) in
             failture(error)

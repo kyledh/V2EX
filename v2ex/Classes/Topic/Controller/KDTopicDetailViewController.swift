@@ -74,15 +74,15 @@ class KDTopicDetailViewController : KDBaseViewController {
     private func loadData() {
         let topic = viewModel.topic
         titleLabel.text = topic.title
-        descriptionLabel.text = "By \(topic.member?.username ?? "") at \(topic.created?.formatDate() ?? "")"
-        let html = KDResources.topicHTML(topic.contentRendered ?? "")
-        contentView.loadHTMLString(html, baseURL: nil)
+//        descriptionLabel.text = "By \(topic.createdName ?? "") at \(topic.created?.formatDate() ?? "")"
+//        let html = KDResources.topicHTML(topic.contentRendered ?? "")
+//        contentView.loadHTMLString(html, baseURL: nil)
         tableView.layoutIfNeeded()
-        let params = ["topic_id": topic.id]
-        viewModel.fetchTopicReplies(params: params as [String : AnyObject], success: { (data) in
-            self.tableView.reloadData()
-        }) { (error) in
-        }
+//        let params = ["topic_id": topic.id]
+//        viewModel.fetchTopicReplies(params: params as [String : AnyObject], success: { (data) in
+//            self.tableView.reloadData()
+//        }) { (error) in
+//        }
     }
     
     private func setupTableHeader() {
@@ -129,7 +129,7 @@ class KDTopicDetailViewController : KDBaseViewController {
     
     private lazy var descriptionLabel: UILabel = {
         var descriptionLabel = UILabel()
-        descriptionLabel.textColor = KDUIKitUtil.HEXCOLOR("999999")
+        descriptionLabel.textColor = KDUIKitUtils.HEXCOLOR("999999")
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
         descriptionLabel.bottomLine()
         return descriptionLabel

@@ -14,7 +14,7 @@ class KDTopicsViewModel {
 
     func fetchTopicsWithNode(nodeName: String, success: @escaping (_ responseObject: [KDTopicModel]) -> (), failture: @escaping (_ error: NSError?) -> ()) {
         KDAPIClient.sharedClient.fetchTopicsWithNode(nodeName: nodeName, success: { (data) in
-            self.topics = [KDTopicModel].deserialize(from: data) as! [KDTopicModel]
+            self.topics = KDParseUtils.sharedParse.topics(data!);
             success(self.topics)
         }) { (error) in
             failture(error)

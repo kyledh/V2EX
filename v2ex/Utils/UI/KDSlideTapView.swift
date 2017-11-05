@@ -121,9 +121,9 @@ class KDSlideTapView: UIScrollView {
     
     private func tagButton() -> UIButton {
         let button = UIButton()
-        button.setTitleColor(KDUIKitUtil.HEXCOLOR("555555"), for: UIControlState.normal)
+        button.setTitleColor(KDUIKitUtils.HEXCOLOR("555555"), for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.backgroundColor = KDUIKitUtil.HEXCOLOR("f5f5f5")
+        button.backgroundColor = KDUIKitUtils.HEXCOLOR("f5f5f5")
         button.addTarget(self, action: #selector(tapAction(_:)), for: UIControlEvents.touchUpInside)
         button.snp.makeConstraints { (make) in
             make.height.equalTo(25)
@@ -134,12 +134,12 @@ class KDSlideTapView: UIScrollView {
     private func setSelectedItem(_ button: UIButton) {
         let oldButton = selectedItem
         oldButton?.isSelected = false
-        oldButton?.backgroundColor = KDUIKitUtil.HEXCOLOR("f5f5f5")
-        oldButton?.setTitleColor(KDUIKitUtil.HEXCOLOR("555555"), for: UIControlState.normal)
+        oldButton?.backgroundColor = KDUIKitUtils.HEXCOLOR("f5f5f5")
+        oldButton?.setTitleColor(KDUIKitUtils.HEXCOLOR("555555"), for: UIControlState.normal)
         
         button.isSelected = true
-        button.backgroundColor = KDUIKitUtil.HEXCOLOR("333344")
-        button.setTitleColor(KDUIKitUtil.HEXCOLOR("ffffff"), for: UIControlState.normal)
+        button.backgroundColor = KDUIKitUtils.HEXCOLOR("333344")
+        button.setTitleColor(KDUIKitUtils.HEXCOLOR("ffffff"), for: UIControlState.normal)
         selectedItem = button
     }
     

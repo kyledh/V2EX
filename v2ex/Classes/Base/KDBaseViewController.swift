@@ -29,7 +29,7 @@ class KDBaseViewController : UIViewController {
             navigationController?.navigationBar.shadowImage = nil
         }
     }
-    
+
     // MARK: Private Method
     private func presentLeftBar() {
         if presentingViewController != nil && navigationController?.viewControllers.count == 1 {

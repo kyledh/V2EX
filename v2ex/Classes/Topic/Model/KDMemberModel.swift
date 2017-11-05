@@ -6,9 +6,7 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import HandyJSON
-
-class KDMemberModel : HandyJSON {
+class KDMemberModel {
     
     var avatarLarge: String?
     var avatarMini: String?
@@ -17,14 +15,4 @@ class KDMemberModel : HandyJSON {
     var tagline: String?
     var username: String?
     
-    func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            avatarLarge <-- "avatar_large"
-        mapper <<<
-            avatarMini <-- "avatar_mini"
-        mapper <<<
-            avatarNormal <-- "avatar_normal"
-    }
-
-    required init() {}
 }

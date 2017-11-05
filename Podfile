@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'v2ex' do
     pod 'SnapKit', '~> 4.0.0'
-    pod 'Alamofire', '~> 4.5'
-    pod 'HandyJSON', '~> 4.0.0-beta.1'
+    pod 'Alamofire', '~> 4.5.1'
+    pod 'Fuzi', '~> 2.0.0'
     pod 'Kingfisher', '~> 4.0'
 end

@@ -6,9 +6,7 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import HandyJSON
-
-class KDReplyModel : HandyJSON {
+class KDReplyModel {
 
     var content: String?
     var contentRendered: String?
@@ -20,12 +18,4 @@ class KDReplyModel : HandyJSON {
     var floor: Int?
     var tag: String?
     
-    required init() {}
-    
-    func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            contentRendered <-- "content_rendered"
-        mapper <<<
-            lastModified <-- "last_modified"
-    }
 }
