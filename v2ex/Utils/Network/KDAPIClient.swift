@@ -17,10 +17,10 @@ class KDAPIClient {
         return client
     }()
 
-    func getRequest(path: String?, params: [String : AnyObject],
+    func getRequest(path: String?, params: [String : AnyObject]?,
                     success: @escaping (_ responseObject:  AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
     {
-        request(method: .get, path: path ?? "", params: params, success: { (responseObject) in
+        request(method: .get, path: path ?? "", params: params ?? ["": "" as AnyObject], success: { (responseObject) in
             success(responseObject)
         }, failture: { (error) in
             failture(error)

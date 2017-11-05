@@ -77,7 +77,7 @@ extension KDTopicsViewController : UITableViewDelegate {
         if indexPath.row < viewModel.topics.count {
             let topicModel = viewModel.topics[indexPath.row]
             let topicDetailViewController = KDTopicDetailViewController()
-            topicDetailViewController.viewModel.topic = topicModel
+            topicDetailViewController.topic = topicModel
             topicDetailViewController.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(topicDetailViewController, animated: true)
         }
@@ -106,7 +106,7 @@ extension KDTopicsViewController : UIViewControllerPreviewingDelegate {
                 sourceRect?.origin.y -= tableView.contentOffset.y
                 previewingContext.sourceRect = sourceRect ?? CGRect.zero
                 let topicDetailViewController = KDTopicDetailViewController()
-                topicDetailViewController.viewModel.topic = viewModel.topics[indexPath.row]
+                topicDetailViewController.topic = viewModel.topics[indexPath.row]
                 topicDetailViewController.hidesBottomBarWhenPushed = true
                 return topicDetailViewController
             }

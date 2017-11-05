@@ -28,7 +28,7 @@ class KDTopicCell : UITableViewCell {
         titleLabel.text = model.title
         nodeLabel.text = " \(model.nodeName ?? "") "
         creatorLabel.text = model.createdName
-        repliesLabel.text = " \(model.replies ?? "0") "
+        repliesLabel.text = " \(model.repliesCount ?? "0") "
         layoutIfNeeded()
     }
     

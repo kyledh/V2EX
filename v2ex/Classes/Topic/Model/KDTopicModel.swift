@@ -16,6 +16,7 @@ class KDTopicModel {
     var content: String?
     var createdName: String?
     var createdAvatar: String?
-    var replies: String?
+    var repliesCount: String?
+    var replies: KDReplyModel?
 
 }

@@ -13,6 +13,7 @@ import SafariServices
 class KDTopicDetailViewController : KDBaseViewController {
     
     var viewModel = KDTopicDetailViewModel()
+    var topic = KDTopicModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,8 @@ class KDTopicDetailViewController : KDBaseViewController {
     }
     
     @objc private func forwardWeb() {
-        let url = URL.init(string: viewModel.topic.url ?? "")
+        let urlString = KDConfig.APIHost() + (topic.url ?? "")
+        let url = URL.init(string: urlString)
         openURL(url!)
     }
     
@@ -72,17 +74,21 @@ class KDTopicDetailViewController : KDBaseViewController {
     }
     
     private func loadData() {
-        let topic = viewModel.topic
+        viewModel.topic = topic
         titleLabel.text = topic.title
-//        descriptionLabel.text = "By \(topic.createdName ?? "") at \(topic.created?.formatDate() ?? "")"
-//        let html = KDResources.topicHTML(topic.contentRendered ?? "")
-//        contentView.loadHTMLString(html, baseURL: nil)
+        viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { (data) in
+            self.topic = data
+            self.refreshView()
+        }) { (error) in
+        }
+    }
+    
+    private func refreshView() {
+        descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
+        let html = KDResources.topicHTML(topic.content ?? "")
+        contentView.loadHTMLString(html, baseURL: nil)
+        tableView.reloadData()
         tableView.layoutIfNeeded()
-//        let params = ["topic_id": topic.id]
-//        viewModel.fetchTopicReplies(params: params as [String : AnyObject], success: { (data) in
-//            self.tableView.reloadData()
-//        }) { (error) in
-//        }
     }
     
     private func setupTableHeader() {
@@ -176,7 +182,6 @@ extension KDTopicDetailViewController : UITableViewDelegate {
         if indexPath.row < viewModel.topicReplies.count {
             let model: KDReplyModel = viewModel.topicReplies[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "kd_reply_cell") as! KDReplyCell
-            model.floor = indexPath.row + 1
             cell.loadData(model)
             return cell
         }

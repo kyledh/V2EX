@@ -21,13 +21,13 @@ class KDReplyCell : UITableViewCell {
     
     // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDReplyModel) {
-        let url = URL(string: "https:" + (model.member?.avatarLarge)!)
+        let url = URL(string: "https:" + (model.createdAvatar)!)
         avatorImageView.kf.setImage(with: url)
-        creatorLabel.text = model.member?.username
-        timeLabel.text = model.created?.formatDate()
-        tagLabel.text = model.tag
+        creatorLabel.text = model.createdName
+//        timeLabel.text = model.created?.formatDate()
+//        tagLabel.text = model.tag
         contentLabel.text = model.content
-        floorLabel.text = " \(model.floor ?? 0) "
+        floorLabel.text = " \(model.floor ?? "0") "
         layoutIfNeeded()
     }
     

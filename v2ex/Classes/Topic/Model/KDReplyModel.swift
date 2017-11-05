@@ -8,14 +8,12 @@
 
 class KDReplyModel {
 
-    var content: String?
-    var contentRendered: String?
-    var created: Int?
     var id: Int?
-    var lastModified: Int?
-    var member: KDMemberModel?
+    var content: String?
+    var createdName: String?
+    var createdAvatar: String?
     var thanks: Int?
-    var floor: Int?
+    var floor: String?
     var tag: String?
     
 }

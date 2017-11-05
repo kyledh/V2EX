@@ -22,4 +22,16 @@ extension KDAPIClient {
             failture(error)
         }
     }
+
+    func fetchTopicDetail(topicUrl: String, success: @escaping (_ responseObject: String?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+        self.getRequest(path: topicUrl, params: nil, success: { (data) in
+            if data is String {
+                success(data as? String)
+            } else {
+                failture(nil)
+            }
+        }) { (error) in
+            failture(error)
+        }
+    }
 }
