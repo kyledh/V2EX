@@ -76,6 +76,7 @@ class KDTopicDetailViewController : KDBaseViewController {
     private func loadData() {
         viewModel.topic = topic
         titleLabel.text = topic.title
+        descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
         viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { (data) in
             self.topic = data
             self.refreshView()
@@ -84,7 +85,6 @@ class KDTopicDetailViewController : KDBaseViewController {
     }
     
     private func refreshView() {
-        descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
         let html = KDResources.topicHTML(topic.content ?? "")
         contentView.loadHTMLString(html, baseURL: nil)
         tableView.reloadData()

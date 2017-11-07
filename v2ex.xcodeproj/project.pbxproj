@@ -131,8 +131,8 @@
 		2768BA701F765BE700FE7BF3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				278E96E71FAEBAF000F3C64D /* Parse */,
 				2768BA751F765C1F00FE7BF3 /* Network */,
+				278E96E71FAEBAF000F3C64D /* Parse */,
 				2768BA741F765C1900FE7BF3 /* UI */,
 				2768BA7A1F765D3000FE7BF3 /* KDConfig.swift */,
 				271BBB611F77F9A4003507AC /* KDFormatDate.swift */,
@@ -285,8 +285,8 @@
 		2768BA971F774EAB00FE7BF3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */,
 				278E96EA1FAEF4E300F3C64D /* KDTopicParse.swift */,
+				2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

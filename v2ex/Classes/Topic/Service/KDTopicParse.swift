@@ -44,6 +44,10 @@ extension KDParseUtils {
         var items = [KDReplyModel]();
         for div in cells {
             let tds = div.xpath("tr/td");
+            // TODO:分页处理
+            if tds.count < 3 {
+                continue;
+            }
             let reply = KDReplyModel()
             reply.createdName = tds[2].xpath("strong/a").first?.stringValue
             reply.createdAvatar = tds[0].xpath("img").first?["src"]
