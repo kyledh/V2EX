@@ -44,6 +44,7 @@
 		27CB24DD1F84E039004CEB00 /* KDSlideTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */; };
 		27F5B0A51F92566800446B4C /* KDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A41F92566800446B4C /* KDLoginViewController.swift */; };
 		27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */; };
+		27FD400D1FB72AA60080934E /* KDUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD400C1FB72AA60080934E /* KDUserService.swift */; };
 		AA245975717B1D29D90910C3 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSlideTapView.swift; sourceTree = "<group>"; };
 		27F5B0A41F92566800446B4C /* KDLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginViewController.swift; sourceTree = "<group>"; };
 		27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
+		27FD400C1FB72AA60080934E /* KDUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserService.swift; sourceTree = "<group>"; };
 		3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
 		70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +212,7 @@
 		2768BA821F765F6100FE7BF3 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				27FD400B1FB72A420080934E /* Service */,
 				2768BA861F765FAD00FE7BF3 /* Controller */,
 			);
 			path = User;
@@ -365,6 +368,14 @@
 				27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		27FD400B1FB72A420080934E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				27FD400C1FB72AA60080934E /* KDUserService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A3D1BF19DBE22F7D385595C0 /* Pods */ = {
@@ -537,6 +548,7 @@
 				271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */,
 				2768BA8F1F774C4D00FE7BF3 /* KDMemberModel.swift in Sources */,
 				27B7E1DD1F8609770004C89F /* KDLayoutView.swift in Sources */,
+				27FD400D1FB72AA60080934E /* KDUserService.swift in Sources */,
 				2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */,
 				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
 				278E96E91FAEBB1700F3C64D /* KDParseUtils.swift in Sources */,

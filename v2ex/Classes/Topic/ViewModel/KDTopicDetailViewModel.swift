@@ -14,10 +14,10 @@ class KDTopicDetailViewModel {
     var topicReplies = [KDReplyModel]()
 
     func fetchTopicDetail(topicUrl: String, success: @escaping (_ responseObject: KDTopicModel) -> (), failture: @escaping (_ error: NSError?) -> ()) {
-        KDAPIClient.sharedClient.fetchTopicDetail(topicUrl: topicUrl, success: { (data) in
-            self.topic.content = KDParseUtils.sharedParse.topicDetail(data!)
-            self.topicReplies = KDParseUtils.sharedParse.topicReplies(data!)
-            success(self.topic)
+        KDAPIClient.sharedClient.fetchTopicDetail(topicUrl: topicUrl, success: { [weak self] (data) in
+            self?.topic.content = KDParseUtils.sharedParse.topicDetail(data!)
+            self?.topicReplies = KDParseUtils.sharedParse.topicReplies(data!)
+            success((self?.topic)!)
         }) { (error) in
             failture(error)
         }

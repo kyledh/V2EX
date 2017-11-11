@@ -23,11 +23,11 @@ class KDTopicsViewController : KDBaseViewController {
     }
     
     @objc func refreshData() {
-        viewModel.fetchTopicsWithNode(nodeName: nodeName!, success: { (data) in
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
-        }) { (error) in
-            self.refreshControl.endRefreshing()
+        viewModel.fetchTopicsWithNode(nodeName: nodeName!, success: { [weak self] (data) in
+            self?.tableView.reloadData()
+            self?.refreshControl.endRefreshing()
+        }) { [weak self] (error) in
+            self?.refreshControl.endRefreshing()
         }
     }
     

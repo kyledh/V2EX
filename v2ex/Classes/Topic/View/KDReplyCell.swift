@@ -80,7 +80,7 @@ class KDReplyCell : UITableViewCell {
     
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
-        creatorLabel.textColor = KDUIKitUtils.HEXCOLOR("778087")
+        creatorLabel.textColor = UIColor.HEXCOLOR("778087")
         creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         creatorLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         return creatorLabel
@@ -88,14 +88,14 @@ class KDReplyCell : UITableViewCell {
     
     private lazy var timeLabel: UILabel = {
         var timeLabel = UILabel()
-        timeLabel.textColor = KDUIKitUtils.HEXCOLOR("cccccc")
+        timeLabel.textColor = UIColor.HEXCOLOR("cccccc")
         timeLabel.font = UIFont.systemFont(ofSize: 12)
         return timeLabel
     }()
     
     private lazy var tagLabel: UILabel = {
         var tagLabel = UILabel()
-        tagLabel.textColor = KDUIKitUtils.HEXCOLOR("778087")
+        tagLabel.textColor = UIColor.HEXCOLOR("778087")
         tagLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return tagLabel
     }()
@@ -110,8 +110,8 @@ class KDReplyCell : UITableViewCell {
     
     private lazy var floorLabel: UILabel = {
        var floorLabel = UILabel()
-        floorLabel.textColor = KDUIKitUtils.HEXCOLOR("cccccc")
-        floorLabel.backgroundColor = KDUIKitUtils.HEXCOLOR("f0f0f0")
+        floorLabel.textColor = UIColor.HEXCOLOR("cccccc")
+        floorLabel.backgroundColor = UIColor.HEXCOLOR("f0f0f0")
         floorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         floorLabel.layer.cornerRadius = 5
         floorLabel.layer.masksToBounds = true

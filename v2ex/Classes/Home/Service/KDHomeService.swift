@@ -17,11 +17,14 @@ extension KDAPIClient {
             ["title": "全部", "name": "all"],
             ["title": "最热", "name": "hot"],
             ["title": "技术", "name": "tech"],
+            ["title": "创意", "name": "creative"],
             ["title": "Apple", "name": "apple"],
+            ["title": "好玩", "name": "play"],
+            ["title": "城市", "name": "city"],
+            ["title": "交易", "name": "deals"],
+            ["title": "R2", "name": "r2"],
             ["title": "酷工作", "name": "jobs"],
-            ["title": "分享发现", "name": "share"],
-            ["title": "二手交易", "name": "all4all"],
-            ["title": "问与答", "name": "qna"]
+            ["title": "问与答", "name": "qna"],
             ])
     }
 }

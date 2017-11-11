@@ -41,10 +41,10 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
     private lazy var loginButton: UIButton = {
         var button = UIButton()
         button.setTitle("  前往登录  ", for: .normal)
-        button.setTitleColor(KDUIKitUtils.HEXCOLOR("555566"), for: .normal)
+        button.setTitleColor(UIColor.HEXCOLOR("555566"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         button.layer.borderWidth = 0.5
-        button.layer.borderColor = KDUIKitUtils.HEXCOLOR("555566").cgColor
+        button.layer.borderColor = UIColor.HEXCOLOR("555566").cgColor
         button.layer.cornerRadius = 4
         button.addTarget(self, action: #selector(jumpLoginViewController), for: .touchUpInside)
         return button

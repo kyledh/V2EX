@@ -77,9 +77,9 @@ class KDTopicDetailViewController : KDBaseViewController {
         viewModel.topic = topic
         titleLabel.text = topic.title
         descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
-        viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { (data) in
-            self.topic = data
-            self.refreshView()
+        viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { [weak self] (data) in
+            self?.topic = data
+            self?.refreshView()
         }) { (error) in
         }
     }
@@ -135,7 +135,7 @@ class KDTopicDetailViewController : KDBaseViewController {
     
     private lazy var descriptionLabel: UILabel = {
         var descriptionLabel = UILabel()
-        descriptionLabel.textColor = KDUIKitUtils.HEXCOLOR("999999")
+        descriptionLabel.textColor = UIColor.HEXCOLOR("999999")
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
         descriptionLabel.bottomLine()
         return descriptionLabel

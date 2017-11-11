@@ -76,7 +76,7 @@ class KDSlideTapView: UIScrollView {
         let screenWidth = UIScreen.main.bounds.size.width
         let width = selectedItem!.left() + selectedItem!.width() / 2 - screenWidth / 2
         var left: CGFloat = 0
-        if width > 0 {
+        if width > 0 && contentSize.width > screenWidth {
             if contentSize.width - screenWidth > width {
                 // 左右侧间距
                 left = width + 5
@@ -121,9 +121,9 @@ class KDSlideTapView: UIScrollView {
     
     private func tagButton() -> UIButton {
         let button = UIButton()
-        button.setTitleColor(KDUIKitUtils.HEXCOLOR("555555"), for: UIControlState.normal)
+        button.setTitleColor(UIColor.HEXCOLOR("555555"), for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.backgroundColor = KDUIKitUtils.HEXCOLOR("f5f5f5")
+        button.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
         button.addTarget(self, action: #selector(tapAction(_:)), for: UIControlEvents.touchUpInside)
         button.snp.makeConstraints { (make) in
             make.height.equalTo(25)
@@ -134,12 +134,12 @@ class KDSlideTapView: UIScrollView {
     private func setSelectedItem(_ button: UIButton) {
         let oldButton = selectedItem
         oldButton?.isSelected = false
-        oldButton?.backgroundColor = KDUIKitUtils.HEXCOLOR("f5f5f5")
-        oldButton?.setTitleColor(KDUIKitUtils.HEXCOLOR("555555"), for: UIControlState.normal)
+        oldButton?.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
+        oldButton?.setTitleColor(UIColor.HEXCOLOR("555555"), for: UIControlState.normal)
         
         button.isSelected = true
-        button.backgroundColor = KDUIKitUtils.HEXCOLOR("333344")
-        button.setTitleColor(KDUIKitUtils.HEXCOLOR("ffffff"), for: UIControlState.normal)
+        button.backgroundColor = UIColor.HEXCOLOR("333344")
+        button.setTitleColor(UIColor.HEXCOLOR("ffffff"), for: UIControlState.normal)
         selectedItem = button
     }
     

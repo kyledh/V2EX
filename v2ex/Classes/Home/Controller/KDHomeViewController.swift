@@ -79,7 +79,7 @@ class KDHomeViewController : KDBaseViewController {
     
     private lazy var separateLine: UIView = {
         let separateLine = UIView()
-        separateLine.backgroundColor = KDUIKitUtils.HEXCOLOR("e2e2e2")
+        separateLine.backgroundColor = UIColor.HEXCOLOR("e2e2e2")
         return separateLine
     }()
 }

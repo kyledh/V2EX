@@ -77,7 +77,7 @@ class KDTopicCell : UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         var titleLabel = UILabel()
-        titleLabel.textColor = KDUIKitUtils.HEXCOLOR("778087")
+        titleLabel.textColor = UIColor.HEXCOLOR("778087")
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.numberOfLines = 0
         return titleLabel
@@ -85,15 +85,15 @@ class KDTopicCell : UITableViewCell {
     
     private lazy var nodeLabel: UILabel = {
        var nodeLabel = UILabel()
-        nodeLabel.textColor = KDUIKitUtils.HEXCOLOR("999999")
+        nodeLabel.textColor = UIColor.HEXCOLOR("999999")
         nodeLabel.font = UIFont.systemFont(ofSize: 12)
-        nodeLabel.backgroundColor = KDUIKitUtils.HEXCOLOR("f5f5f5")
+        nodeLabel.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
         return nodeLabel
     }()
     
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
-        creatorLabel.textColor = KDUIKitUtils.HEXCOLOR("778087")
+        creatorLabel.textColor = UIColor.HEXCOLOR("778087")
         creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return creatorLabel
     }()
@@ -101,7 +101,7 @@ class KDTopicCell : UITableViewCell {
     private lazy var repliesLabel: UILabel = {
        var repliesLabel = UILabel()
         repliesLabel.textColor = UIColor.white
-        repliesLabel.backgroundColor = KDUIKitUtils.HEXCOLOR("aab0c6")
+        repliesLabel.backgroundColor = UIColor.HEXCOLOR("aab0c6")
         repliesLabel.font = UIFont.boldSystemFont(ofSize: 12)
         repliesLabel.layer.cornerRadius = 5
         repliesLabel.layer.masksToBounds = true
