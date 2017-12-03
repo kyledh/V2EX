@@ -6,32 +6,35 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension KDAPIClient {
 
-    func fetchTopicsWithNode(nodeName: String, success: @escaping (_ responseObject: String?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+    public func fetchTopicsWithNode(nodeName: String,
+                                    success: SuccessClosure?,
+                                    failure: FailureClosure?) {
         let params = ["tab": nodeName as AnyObject]
-        self.getRequest(path: nil, params: params, success: { (data) in
-            if data is String {
-                success(data as? String)
-            } else {
-                failture(nil)
-            }
-        }) { (error) in
-            failture(error)
-        }
+        self.getRequest(path: nil,
+                        params: params,
+                        success: { (data) in
+                            success?(data)
+        },
+                        failure: { (error) in
+                            failure?(error)
+        })
     }
 
-    func fetchTopicDetail(topicUrl: String, success: @escaping (_ responseObject: String?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
-        self.getRequest(path: topicUrl, params: nil, success: { (data) in
-            if data is String {
-                success(data as? String)
-            } else {
-                failture(nil)
-            }
-        }) { (error) in
-            failture(error)
-        }
+    public func fetchTopicDetail(topicUrl: String,
+                                 success: SuccessClosure?,
+                                 failure: FailureClosure?)
+    {
+        self.getRequest(path: topicUrl,
+                        params: nil,
+                        success: { data in
+                            success?(data)
+        },
+                        failure: { error in
+                            failure?(error)
+        })
     }
 }

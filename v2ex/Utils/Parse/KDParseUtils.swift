@@ -10,8 +10,6 @@ import Fuzi
 
 class KDParseUtils {
     
-    static let sharedParse: KDParseUtils = {
-        let parse = KDParseUtils()
-        return parse
-    }()
+    public static let shared = KDParseUtils()
+    
 }

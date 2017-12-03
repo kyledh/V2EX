@@ -6,18 +6,23 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class KDTopicsViewModel {
     
     var topics = [KDTopicModel]()
 
-    func fetchTopicsWithNode(nodeName: String, success: @escaping (_ responseObject: [KDTopicModel]) -> (), failture: @escaping (_ error: NSError?) -> ()) {
-        KDAPIClient.sharedClient.fetchTopicsWithNode(nodeName: nodeName, success: { [weak self] (data) in
-            self?.topics = KDParseUtils.sharedParse.topics(data!);
-            success((self?.topics)!)
-        }) { (error) in
-            failture(error)
-        }
+    func fetchTopicsWithNode(nodeName: String, success: ((_ topics: [KDTopicModel]) -> ())?, failure: FailureClosure?) {
+        KDAPIClient.shared.fetchTopicsWithNode(nodeName: nodeName, success: { [weak self] data in
+            guard let strongSelf = self else { return }
+            guard let _ = data else {
+                failure?(nil)
+                return
+            }
+            strongSelf.topics = KDParseUtils.shared.topics(data!) ?? []
+            success?(strongSelf.topics)
+            }, failure: { (error) in
+                failure?(error)
+        })
     }
 }

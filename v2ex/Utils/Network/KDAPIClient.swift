@@ -7,48 +7,46 @@
 //
 
 import UIKit
-
 import Alamofire
+
+public typealias SuccessClosure = (_ data: Data?) -> Void
+public typealias FailureClosure = (_ error: Error?) -> Void
 
 class KDAPIClient {
     
-    static let sharedClient: KDAPIClient = {
-        let client = KDAPIClient()
-        return client
-    }()
+    static let shared = KDAPIClient()
 
-    func getRequest(path: String?, params: [String : AnyObject]?,
-                    success: @escaping (_ responseObject:  AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
+    public func getRequest(path: String?,
+                           params: [String : AnyObject]?,
+                           success: SuccessClosure?,
+                           failure: FailureClosure?)
     {
-        request(method: .get, path: path ?? "", params: params ?? ["": "" as AnyObject], success: { (responseObject) in
-            success(responseObject)
-        }, failture: { (error) in
-            failture(error)
+        request(method: .get,
+                path: path,
+                params: params,
+                success: { data in
+                    success?(data)
+        },
+                failure: { error in
+                    failure?(error)
         })
     }
     
-    func postRequest(path: String, params: [String : AnyObject],
-                     success: @escaping (_ responseObject: AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
+    private func request(method: HTTPMethod,
+                         path: String?,
+                         params: [String : AnyObject]?,
+                         success: SuccessClosure?,
+                         failure: FailureClosure?)
     {
-        request(method: .post, path: path, params: params, success: { (responseObject) in
-            success(responseObject)
-        }, failture: { (error) in
-            failture(error)
-        })
-    }
-    
-    private func request(method: HTTPMethod, path: String, params: [String : AnyObject],
-                         success: @escaping (_ responseObject: AnyObject) -> (), failture: @escaping (_ error: NSError) -> ())
-    {
-        let urlString = KDConfig.APIHost() + path;
+        let urlString = KDConfig.APIHost() + (path ?? "");
         let sessionManager = Alamofire.SessionManager.default
         sessionManager.request(urlString, method: method, parameters: params)
-            .responseString { (response) in
+            .responseData { (response) in
                 switch response.result {
-                case .success:
-                    success(response.result.value as AnyObject)
+                case .success(let data):
+                    success?(data)
                 case .failure(let error):
-                    failture(error as NSError)
+                    failure?(error)
                 }
         }
     }

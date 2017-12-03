@@ -6,20 +6,25 @@
 //  Copyright © 2017年 kyle. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class KDTopicDetailViewModel {
     
     var topic = KDTopicModel()
     var topicReplies = [KDReplyModel]()
 
-    func fetchTopicDetail(topicUrl: String, success: @escaping (_ responseObject: KDTopicModel) -> (), failture: @escaping (_ error: NSError?) -> ()) {
-        KDAPIClient.sharedClient.fetchTopicDetail(topicUrl: topicUrl, success: { [weak self] (data) in
-            self?.topic.content = KDParseUtils.sharedParse.topicDetail(data!)
-            self?.topicReplies = KDParseUtils.sharedParse.topicReplies(data!)
-            success((self?.topic)!)
+    func fetchTopicDetail(topicUrl: String, success: ((_ topic: KDTopicModel) -> ())?, failure: FailureClosure?) {
+        KDAPIClient.shared.fetchTopicDetail(topicUrl: topicUrl, success: { [weak self] data in
+            guard let strongSelf = self else { return }
+            guard let _ = data else {
+                failure?(nil)
+                return
+            }
+            strongSelf.topic.content = KDParseUtils.shared.topicDetail(data!) ?? ""
+            strongSelf.topicReplies = KDParseUtils.shared.topicReplies(data!) ?? []
+            success?(strongSelf.topic)
         }) { (error) in
-            failture(error)
+            failure?(error)
         }
     }
     

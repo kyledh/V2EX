@@ -77,9 +77,10 @@ class KDTopicDetailViewController : KDBaseViewController {
         viewModel.topic = topic
         titleLabel.text = topic.title
         descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
-        viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { [weak self] (data) in
-            self?.topic = data
-            self?.refreshView()
+        viewModel.fetchTopicDetail(topicUrl: topic.url!, success: { [weak self] data in
+            guard let strongSelf = self else { return }
+            strongSelf.topic = data
+            strongSelf.refreshView()
         }) { (error) in
         }
     }
