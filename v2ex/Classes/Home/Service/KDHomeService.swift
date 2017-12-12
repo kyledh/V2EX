@@ -10,10 +10,10 @@ import UIKit
 
 extension KDAPIClient {
     
-    func fetchHotNodes(success: @escaping (_ responseObject: NSArray?) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+    func fetchHotNodes(success: ((_ response: NSArray?) -> ())?, failure: FailureClosure?) {
         // TODO: 获取热门节点
         // 手动..............
-        success([
+        success?([
             ["title": "全部", "name": "all"],
             ["title": "最热", "name": "hot"],
             ["title": "技术", "name": "tech"],

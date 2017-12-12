@@ -13,7 +13,10 @@ class KDLoginViewModel {
     func fetchVerificationCode(success: ((_ codeURL: String) -> ())?, failure: FailureClosure?) {
         KDAPIClient.shared.fetchLoginPageInfo(success: { data in
             guard let _ = data else { return }
-            let codeURL = KDParseUtils.shared.verificationCode(data!)
+            guard let codeURL = KDParseUtils.shared.verificationCode(data!) else {
+                failure?(nil)
+                return
+            }
             success?(codeURL)
         }, failure: { error in
             failure?(error)

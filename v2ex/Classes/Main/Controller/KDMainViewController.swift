@@ -23,7 +23,7 @@ class KDMainViewController : UITabBarController {
         userNavigationController.tabBarItem.image = #imageLiteral(resourceName: "kd_user")
         
         viewControllers = [homeNavigationController,
-                                userNavigationController]
+                           userNavigationController]
     }
     
 }

@@ -8,8 +8,11 @@
 //  FIXME: 高度约束有问题
 
 import UIKit
-
 import SnapKit
+
+fileprivate extension Selector {
+    static let tapAction = #selector(KDSlideTapView.tapAction(_:))
+}
 
 protocol KDSlideTapDelegate : NSObjectProtocol {
     
@@ -58,11 +61,11 @@ class KDSlideTapView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func reloadData() {
+    public func reloadData() {
         setItems()
     }
     
-    @objc func tapAction(_ button: UIButton) {
+    @objc fileprivate func tapAction(_ button: UIButton) {
         if button == selectedItem {
             return
         }
@@ -72,7 +75,7 @@ class KDSlideTapView: UIScrollView {
         currentIndex = button.tag - 1
     }
     
-    func scrollToRowAtIndex(index: Int) {
+    public func scrollToRowAtIndex(index: Int) {
         let screenWidth = UIScreen.main.bounds.size.width
         let width = selectedItem!.left() + selectedItem!.width() / 2 - screenWidth / 2
         var left: CGFloat = 0
@@ -124,7 +127,7 @@ class KDSlideTapView: UIScrollView {
         button.setTitleColor(UIColor.HEXCOLOR("555555"), for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         button.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
-        button.addTarget(self, action: #selector(tapAction(_:)), for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: .tapAction, for: UIControlEvents.touchUpInside)
         button.snp.makeConstraints { (make) in
             make.height.equalTo(25)
         }

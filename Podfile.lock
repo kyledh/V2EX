@@ -2,27 +2,30 @@ PODS:
   - Alamofire (4.5.1)
   - Fuzi (2.0.1)
   - Kingfisher (4.0.1)
+  - PKHUD (5.0.0)
   - RxCocoa (4.0.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.0.0)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5.1)
-  - Fuzi (~> 2.0.0)
+  - Alamofire (~> 4.0)
+  - Fuzi (~> 2.0)
   - Kingfisher (~> 4.0)
+  - PKHUD (~> 5.0)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
-  - SnapKit (~> 4.0.0)
+  - SnapKit (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Fuzi: f64983dea705491d3aedd32351247a09523e7efd
   Kingfisher: b771785e9461ed4b8686d40e7145f9e58100cb24
+  PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: d96b813bd233bca9d6938707641233ade17c8d55
+PODFILE CHECKSUM: cb0d8e7677e5325442947550c59563c950b1bc11
 
 COCOAPODS: 1.4.0.beta.1

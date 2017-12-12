@@ -8,6 +8,10 @@
 
 import UIKit
 
+fileprivate extension Selector {
+    static let dismissViewController = #selector(KDBaseViewController.dismissViewController)
+}
+
 class KDBaseViewController : UIViewController {
     
     override func viewDidLoad() {
@@ -33,11 +37,11 @@ class KDBaseViewController : UIViewController {
     // MARK: Private Method
     private func presentLeftBar() {
         if presentingViewController != nil && navigationController?.viewControllers.count == 1 {
-            navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(dismissViewController))
+            navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: .dismissViewController)
         }
     }
     
-    @objc private func dismissViewController() {
+    @objc fileprivate func dismissViewController() {
         dismiss(animated: true, completion: nil)
     }
 }

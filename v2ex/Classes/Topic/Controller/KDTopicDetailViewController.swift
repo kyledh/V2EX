@@ -10,6 +10,10 @@ import UIKit
 import WebKit
 import SafariServices
 
+fileprivate extension Selector {
+    static let forwardWeb = #selector(KDTopicDetailViewController.forwardWeb)
+}
+
 class KDTopicDetailViewController : KDBaseViewController {
     
     var viewModel = KDTopicDetailViewModel()
@@ -58,11 +62,11 @@ class KDTopicDetailViewController : KDBaseViewController {
             make.edges.equalTo(view)
         }
         setupTableHeader()
-        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_forward"), style: .plain, target: self, action: #selector(forwardWeb))
+        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_forward"), style: .plain, target: self, action: .forwardWeb)
         navigationItem.rightBarButtonItem = rightBarItem;
     }
     
-    @objc private func forwardWeb() {
+    @objc fileprivate func forwardWeb() {
         let urlString = KDConfig.APIHost() + (topic.url ?? "")
         let url = URL.init(string: urlString)
         openURL(url!)

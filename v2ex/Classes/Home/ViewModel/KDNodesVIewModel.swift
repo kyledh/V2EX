@@ -12,7 +12,7 @@ class KDNodesVIewModel {
     
     var nodes = [KDNodeModel]()
     
-    func fetchHotNodes(success: @escaping (_ responseObject: [KDNodeModel]) -> (), failture: @escaping (_ error: NSError?) -> ()) {
+    func fetchHotNodes(success: ((_ responseObject: [KDNodeModel]) -> ())?, failure: FailureClosure?) {
         KDAPIClient.shared.fetchHotNodes(success: { [weak self] data in
             guard let strongSelf = self else { return }
             for i in data! {
@@ -22,9 +22,9 @@ class KDNodesVIewModel {
                 node.title = item["title"];
                 strongSelf.nodes.append(node);
             }
-            success(strongSelf.nodes)
+            success?(strongSelf.nodes)
         }) { (error) in
-            failture(error)
+            failure?(error)
         }
     }
 }

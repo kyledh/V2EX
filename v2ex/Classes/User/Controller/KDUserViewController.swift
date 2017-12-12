@@ -8,6 +8,11 @@
 
 import UIKit
 
+fileprivate extension Selector {
+    static let jumpSettingViewController = #selector(KDUserViewController.jumpSettingViewController)
+    static let jumpLoginViewController = #selector(KDUserViewController.jumpLoginViewController)
+}
+
 class KDUserViewController : KDBaseLargeTitlesViewController {
 
     override func viewDidLoad() {
@@ -18,7 +23,7 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
     
     // MARK: Private Method
     private func setupView() {
-        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_setting"), style: .plain, target: self, action: #selector(jumpSettingViewController))
+        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_setting"), style: .plain, target: self, action: .jumpSettingViewController)
         navigationItem.rightBarButtonItem = rightBarItem;
         view.addSubview(loginButton)
         loginButton.snp.makeConstraints { (make) in
@@ -26,13 +31,13 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
         }
     }
     
-    @objc private func jumpSettingViewController() {
+    @objc fileprivate func jumpSettingViewController() {
         let settingViewController = KDSettingViewController()
         settingViewController.hidesBottomBarWhenPushed = true;
         navigationController?.pushViewController(settingViewController, animated: true)
     }
     
-    @objc private func jumpLoginViewController() {
+    @objc fileprivate func jumpLoginViewController() {
         let loginViewController = UINavigationController.init(rootViewController: KDLoginViewController())
         present(loginViewController, animated: true, completion: nil)
     }
@@ -46,7 +51,7 @@ class KDUserViewController : KDBaseLargeTitlesViewController {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.HEXCOLOR("555566").cgColor
         button.layer.cornerRadius = 4
-        button.addTarget(self, action: #selector(jumpLoginViewController), for: .touchUpInside)
+        button.addTarget(self, action: .jumpLoginViewController, for: .touchUpInside)
         return button
     }()
 }

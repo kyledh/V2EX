@@ -23,13 +23,16 @@ class KDLoginViewController: KDBaseViewController {
     private func fetchData() {
         viewModel.fetchVerificationCode(success: { [weak self] code in
             guard let strongSelf = self else { return }
-            KDAPIClient.shared.getRequest(path: code,
-                                          params: nil,
-                                          success: { data in
-                                            strongSelf.codeImage.image = UIImage(data: data!)
-            },
-                                          failure: { error in })
-            }, failure: { (error) in })
+            KDAPIClient.shared.getRequest(path: code, params: nil, success: { data in
+                strongSelf.codeImage.image = UIImage(data: data!)
+            }, failure: { error in
+            })
+        }, failure: { error in
+        })
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     private func setupViews() {
@@ -107,6 +110,8 @@ class KDLoginViewController: KDBaseViewController {
         if #available(iOS 11.0, *) {
             textField.textContentType = .username
         }
+        textField.delegate = self
+        textField.returnKeyType = .done
         textField.bottomLine()
         return textField
     }()
@@ -128,6 +133,8 @@ class KDLoginViewController: KDBaseViewController {
         if #available(iOS 11.0, *) {
             textField.textContentType = .password
         }
+        textField.delegate = self
+        textField.returnKeyType = .done
         textField.bottomLine()
         return textField
     }()
@@ -150,6 +157,8 @@ class KDLoginViewController: KDBaseViewController {
         textField.placeholder = "请输入验证码"
         textField.textColor = UIColor.black
         textField.font = UIFont.systemFont(ofSize: 16)
+        textField.delegate = self
+        textField.returnKeyType = .done
         textField.bottomLine()
         return textField
     }()
@@ -164,4 +173,12 @@ class KDLoginViewController: KDBaseViewController {
         button.layer.cornerRadius = 2
         return button
     }()
+}
+
+extension KDLoginViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

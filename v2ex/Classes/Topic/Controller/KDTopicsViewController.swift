@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import PKHUD
+
+fileprivate extension Selector {
+    static let refreshData = #selector(KDTopicsViewController.refreshData)
+}
 
 class KDTopicsViewController : KDBaseViewController {
     
@@ -21,8 +26,8 @@ class KDTopicsViewController : KDBaseViewController {
             registerForPreviewing(with: self, sourceView: view)
         }
     }
-    
-    @objc func refreshData() {
+
+    @objc fileprivate func refreshData() {
         viewModel.fetchTopicsWithNode(nodeName: nodeName!, success: { [weak self] data in
             guard let strongSelf = self else { return }
             strongSelf.tableView.reloadData()
@@ -55,7 +60,7 @@ class KDTopicsViewController : KDBaseViewController {
     
     private lazy var refreshControl: UIRefreshControl = {
         var refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.addTarget(self, action: .refreshData, for: .valueChanged)
         refreshControl.attributedTitle = NSAttributedString(string: "下拉刷新数据")
         return refreshControl
     }()
