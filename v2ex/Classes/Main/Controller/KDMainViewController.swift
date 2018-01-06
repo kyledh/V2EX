@@ -22,8 +22,7 @@ class KDMainViewController : UITabBarController {
         userNavigationController.tabBarItem.title = "个人"
         userNavigationController.tabBarItem.image = #imageLiteral(resourceName: "kd_user")
         
-        viewControllers = [homeNavigationController,
-                           userNavigationController]
+        viewControllers = [homeNavigationController, userNavigationController]
     }
     
 }

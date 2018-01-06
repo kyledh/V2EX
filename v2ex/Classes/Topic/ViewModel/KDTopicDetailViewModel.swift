@@ -16,7 +16,7 @@ class KDTopicDetailViewModel {
     func fetchTopicDetail(topicUrl: String, success: ((_ topic: KDTopicModel) -> ())?, failure: FailureClosure?) {
         KDAPIClient.shared.fetchTopicDetail(topicUrl: topicUrl, success: { [weak self] data in
             guard let strongSelf = self else { return }
-            guard let _ = data else {
+            guard data != nil else {
                 failure?(nil)
                 return
             }

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import PKHUD
+import MBProgressHUD
+import Then
 
 fileprivate extension Selector {
     static let refreshData = #selector(KDTopicsViewController.refreshData)
@@ -28,17 +29,19 @@ class KDTopicsViewController : KDBaseViewController {
     }
 
     @objc fileprivate func refreshData() {
+        MBProgressHUD.showAdded(to: view, animated: true)
         viewModel.fetchTopicsWithNode(nodeName: nodeName!, success: { [weak self] data in
             guard let strongSelf = self else { return }
             strongSelf.tableView.reloadData()
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
             strongSelf.refreshControl.endRefreshing()
         }) { [weak self] error in
             guard let strongSelf = self else { return }
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
             strongSelf.refreshControl.endRefreshing()
         }
     }
     
-    // MARK: Private Method
     private func setupView() {
         view.addSubview(tableView)
         tableView.addSubview(refreshControl)
@@ -70,24 +73,22 @@ class KDTopicsViewController : KDBaseViewController {
 extension KDTopicsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < viewModel.topics.count {
-            let model = viewModel.topics[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "kd_topic_cell") as! KDTopicCell
-            cell.loadData(model)
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "kd_topic_cell") as? KDTopicCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        let model = viewModel.topics[indexPath.row]
+        cell.loadData(model)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row < viewModel.topics.count {
-            let topicModel = viewModel.topics[indexPath.row]
-            let topicDetailViewController = KDTopicDetailViewController()
-            topicDetailViewController.topic = topicModel
-            topicDetailViewController.hidesBottomBarWhenPushed = true
-            navigationController?.pushViewController(topicDetailViewController, animated: true)
+        let topicModel = viewModel.topics[indexPath.row]
+        let topicDetailViewController = KDTopicDetailViewController().then {
+            $0.topic = topicModel
+            $0.hidesBottomBarWhenPushed = true
         }
+        navigationController?.pushViewController(topicDetailViewController, animated: true)
     }
 }
 
@@ -105,20 +106,19 @@ extension KDTopicsViewController : UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         var point = location
         point.y += tableView.contentOffset.y
-        if tableView.layer.contains(point) {
-            let indexPath = tableView.indexPathForRow(at: point)!
-            if indexPath.row < viewModel.topics.count {
-                let cell = tableView .cellForRow(at: indexPath)
-                var sourceRect = cell?.frame
-                sourceRect?.origin.y -= tableView.contentOffset.y
-                previewingContext.sourceRect = sourceRect ?? CGRect.zero
-                let topicDetailViewController = KDTopicDetailViewController()
-                topicDetailViewController.topic = viewModel.topics[indexPath.row]
-                topicDetailViewController.hidesBottomBarWhenPushed = true
-                return topicDetailViewController
-            }
+        
+        guard tableView.layer.contains(point) else { return nil }
+        guard let indexPath = tableView.indexPathForRow(at: point) else { return nil }
+        guard indexPath.row < viewModel.topics.count else { return nil }
+        
+        guard var sourceRect = tableView .cellForRow(at: indexPath)?.frame else { return nil }
+        sourceRect.origin.y -= tableView.contentOffset.y
+        previewingContext.sourceRect = sourceRect
+        let topicDetailViewController = KDTopicDetailViewController().then {
+            $0.topic = viewModel.topics[indexPath.row]
+            $0.hidesBottomBarWhenPushed = true
         }
-        return nil
+        return topicDetailViewController
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

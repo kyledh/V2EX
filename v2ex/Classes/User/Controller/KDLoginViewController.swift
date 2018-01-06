@@ -141,6 +141,9 @@ class KDLoginViewController: KDBaseViewController {
     
     private lazy var codeImage: UIImageView = {
         var imageView = UIImageView()
+        if #available(iOS 11, *) {
+            imageView.accessibilityIgnoresInvertColors = true
+        }
         return imageView
     }()
     
@@ -169,7 +172,7 @@ class KDLoginViewController: KDBaseViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.layer.borderWidth = 0.5
-        button.layer.borderColor = UIColor.HEXCOLOR("999999").cgColor
+        button.layer.borderColor = UIColor.hex("999999")?.cgColor
         button.layer.cornerRadius = 2
         return button
     }()

@@ -15,7 +15,7 @@ class KDTopicsViewModel {
     func fetchTopicsWithNode(nodeName: String, success: ((_ topics: [KDTopicModel]) -> ())?, failure: FailureClosure?) {
         KDAPIClient.shared.fetchTopicsWithNode(nodeName: nodeName, success: { [weak self] data in
             guard let strongSelf = self else { return }
-            guard let _ = data else {
+            guard data != nil else {
                 failure?(nil)
                 return
             }

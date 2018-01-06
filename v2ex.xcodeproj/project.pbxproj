@@ -10,7 +10,6 @@
 		271BBB561F777E5D003507AC /* KDTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB551F777E5D003507AC /* KDTopicCell.swift */; };
 		271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB571F77CCC5003507AC /* KDTopicDetailViewController.swift */; };
 		271BBB5A1F77CE7E003507AC /* KDTopicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB591F77CE7E003507AC /* KDTopicDetailViewModel.swift */; };
-		271BBB5C1F77D0B1003507AC /* KDBorderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB5B1F77D0B1003507AC /* KDBorderLineView.swift */; };
 		271BBB5E1F77DFC7003507AC /* KDReplyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB5D1F77DFC7003507AC /* KDReplyModel.swift */; };
 		271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB5F1F77E4A6003507AC /* KDReplyCell.swift */; };
 		271BBB621F77F9A4003507AC /* KDFormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271BBB611F77F9A4003507AC /* KDFormatDate.swift */; };
@@ -18,7 +17,7 @@
 		2763DCF61F8521190005DFAC /* KDHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763DCF51F8521190005DFAC /* KDHomeService.swift */; };
 		2763DCF81F8522F20005DFAC /* KDNodesVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763DCF71F8522F20005DFAC /* KDNodesVIewModel.swift */; };
 		2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */; };
-		2768BA791F765D2600FE7BF3 /* KDUIKitUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA781F765D2600FE7BF3 /* KDUIKitUtils.swift */; };
+		2768BA791F765D2600FE7BF3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA781F765D2600FE7BF3 /* UIColor+Extension.swift */; };
 		2768BA7B1F765D3000FE7BF3 /* KDConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7A1F765D3000FE7BF3 /* KDConfig.swift */; };
 		2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */; };
 		2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */; };
@@ -37,7 +36,7 @@
 		27B7A0601F7645A7006B184E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A05E1F7645A7006B184E /* Main.storyboard */; };
 		27B7A0621F7645A7006B184E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0611F7645A7006B184E /* Assets.xcassets */; };
 		27B7A0651F7645A7006B184E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B7A0631F7645A7006B184E /* LaunchScreen.storyboard */; };
-		27B7E1DD1F8609770004C89F /* KDLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E1DC1F8609770004C89F /* KDLayoutView.swift */; };
+		27B7E1DD1F8609770004C89F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7E1DC1F8609770004C89F /* UIView+Extension.swift */; };
 		27CB24CE1F84923F004CEB00 /* basic.css in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24CD1F84923F004CEB00 /* basic.css */; };
 		27CB24D71F84C076004CEB00 /* topic.html in Resources */ = {isa = PBXBuildFile; fileRef = 27CB24D61F84C076004CEB00 /* topic.html */; };
 		27CB24DB1F84C89B004CEB00 /* KDResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CB24DA1F84C89B004CEB00 /* KDResources.swift */; };
@@ -54,7 +53,6 @@
 		271BBB551F777E5D003507AC /* KDTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicCell.swift; sourceTree = "<group>"; };
 		271BBB571F77CCC5003507AC /* KDTopicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicDetailViewController.swift; sourceTree = "<group>"; };
 		271BBB591F77CE7E003507AC /* KDTopicDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicDetailViewModel.swift; sourceTree = "<group>"; };
-		271BBB5B1F77D0B1003507AC /* KDBorderLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDBorderLineView.swift; sourceTree = "<group>"; };
 		271BBB5D1F77DFC7003507AC /* KDReplyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDReplyModel.swift; sourceTree = "<group>"; };
 		271BBB5F1F77E4A6003507AC /* KDReplyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDReplyCell.swift; sourceTree = "<group>"; };
 		271BBB611F77F9A4003507AC /* KDFormatDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDFormatDate.swift; sourceTree = "<group>"; };
@@ -62,7 +60,7 @@
 		2763DCF51F8521190005DFAC /* KDHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDHomeService.swift; sourceTree = "<group>"; };
 		2763DCF71F8522F20005DFAC /* KDNodesVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDNodesVIewModel.swift; sourceTree = "<group>"; };
 		2768BA761F765D0700FE7BF3 /* KDBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDBaseViewController.swift; sourceTree = "<group>"; };
-		2768BA781F765D2600FE7BF3 /* KDUIKitUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUIKitUtils.swift; sourceTree = "<group>"; };
+		2768BA781F765D2600FE7BF3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		2768BA7A1F765D3000FE7BF3 /* KDConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDConfig.swift; sourceTree = "<group>"; };
 		2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDAPIClient.swift; sourceTree = "<group>"; };
 		2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMainViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +81,7 @@
 		27B7A0611F7645A7006B184E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B7A0641F7645A7006B184E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27B7A0661F7645A7006B184E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27B7E1DC1F8609770004C89F /* KDLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLayoutView.swift; sourceTree = "<group>"; };
+		27B7E1DC1F8609770004C89F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		27CB24CD1F84923F004CEB00 /* basic.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = basic.css; sourceTree = "<group>"; };
 		27CB24D61F84C076004CEB00 /* topic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = topic.html; sourceTree = "<group>"; };
 		27CB24DA1F84C89B004CEB00 /* KDResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDResources.swift; sourceTree = "<group>"; };
@@ -179,10 +177,9 @@
 		2768BA741F765C1900FE7BF3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				271BBB5B1F77D0B1003507AC /* KDBorderLineView.swift */,
-				27B7E1DC1F8609770004C89F /* KDLayoutView.swift */,
+				27B7E1DC1F8609770004C89F /* UIView+Extension.swift */,
+				2768BA781F765D2600FE7BF3 /* UIColor+Extension.swift */,
 				27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */,
-				2768BA781F765D2600FE7BF3 /* KDUIKitUtils.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -445,8 +442,9 @@
 				TargetAttributes = {
 					27B7A0561F7645A7006B184E = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 86Y537ZF24;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -510,20 +508,22 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -562,13 +562,12 @@
 				278E96EB1FAEF4E300F3C64D /* KDTopicParse.swift in Sources */,
 				2768BA7B1F765D3000FE7BF3 /* KDConfig.swift in Sources */,
 				2768BA911F774C7F00FE7BF3 /* KDNodeModel.swift in Sources */,
-				271BBB5C1F77D0B1003507AC /* KDBorderLineView.swift in Sources */,
 				27CB24DD1F84E039004CEB00 /* KDSlideTapView.swift in Sources */,
 				2768BA8D1F774C0000FE7BF3 /* KDTopicModel.swift in Sources */,
 				271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */,
 				2768BA8F1F774C4D00FE7BF3 /* KDMemberModel.swift in Sources */,
 				27FD40121FB7FA8B0080934E /* KDLoginParse.swift in Sources */,
-				27B7E1DD1F8609770004C89F /* KDLayoutView.swift in Sources */,
+				27B7E1DD1F8609770004C89F /* UIView+Extension.swift in Sources */,
 				27FD400D1FB72AA60080934E /* KDUserService.swift in Sources */,
 				2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */,
 				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
@@ -585,7 +584,7 @@
 				271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */,
 				27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */,
 				27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */,
-				2768BA791F765D2600FE7BF3 /* KDUIKitUtils.swift in Sources */,
+				2768BA791F765D2600FE7BF3 /* UIColor+Extension.swift in Sources */,
 				2763DCF81F8522F20005DFAC /* KDNodesVIewModel.swift in Sources */,
 				2768BA991F774EDC00FE7BF3 /* KDTopicService.swift in Sources */,
 				2768BA9B1F77508900FE7BF3 /* KDTopicsViewModel.swift in Sources */,
@@ -727,8 +726,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y537ZF24;
 				INFOPLIST_FILE = v2ex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -746,8 +745,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86Y537ZF24;
 				INFOPLIST_FILE = v2ex/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

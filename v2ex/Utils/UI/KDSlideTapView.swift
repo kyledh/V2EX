@@ -5,7 +5,6 @@
 //  Created by donghao on 2017/10/4.
 //  Copyright © 2017年 kyle. All rights reserved.
 //
-//  FIXME: 高度约束有问题
 
 import UIKit
 import SnapKit
@@ -25,130 +24,77 @@ protocol KDSlideTapDelegate : NSObjectProtocol {
 
 extension KDSlideTapDelegate {
     
-    func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int) {
-    }
+    func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int) {}
 }
 
-class KDSlideTapView: UIScrollView {
+class KDSlideTapView: UIView {
 
     var numberOfRows = 0
-    var currentIndex: Int! {
+    var currentIndex: Int = 0 {
         didSet {
-            let index = currentIndex + 1
-            if index > 0 && index <= numberOfRows {
-                let tagView = viewWithTag(index)
-                if (tagView?.isKind(of: UIButton.self))! {
-                    setSelectedItem(tagView as! UIButton)
-                    scrollToRowAtIndex(index: index - 1)
-                }
-            }
+            guard let button = viewWithTag(currentIndex + 1) as? UIButton else { return }
+            setSelectedItem(button)
+            scrollToRowAtIndex(index: currentIndex)
         }
     }
     var selectedItem: UIButton?
     var slideTapDelegate: KDSlideTapDelegate?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        currentIndex = 0
-        showsHorizontalScrollIndicator = false
-        if #available(iOS 11.0, *) {
-            contentInsetAdjustmentBehavior = .never
-        }
-        setupView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     public func reloadData() {
         setItems()
     }
     
     @objc fileprivate func tapAction(_ button: UIButton) {
-        if button == selectedItem {
-            return
-        }
-        if slideTapDelegate != nil {
-            slideTapDelegate!.slideTapView(in: self, didSelectAtIndex: button.tag - 1)
-        }
+        guard button != selectedItem else { return }
+        slideTapDelegate?.slideTapView(in: self, didSelectAtIndex: button.tag - 1)
         currentIndex = button.tag - 1
     }
     
     public func scrollToRowAtIndex(index: Int) {
-        let screenWidth = UIScreen.main.bounds.size.width
-        let width = selectedItem!.left() + selectedItem!.width() / 2 - screenWidth / 2
-        var left: CGFloat = 0
-        if width > 0 && contentSize.width > screenWidth {
-            if contentSize.width - screenWidth > width {
-                // 左右侧间距
-                left = width + 5
-            } else {
-                left = contentSize.width - screenWidth
-            }
-        }
-        setContentOffset(CGPoint.init(x: left, y: 0), animated: true)
+        guard selectedItem != nil else { return }
+        let offset = selectedItem!.center.x - (contentView.width - 10) / 2
+        let x = min(contentView.contentSize.width - contentView.width, offset)
+        contentView.setContentOffset(CGPoint(x: max(x, 0), y: 0), animated: true)
     }
-    
-    // MARK: Private Method
-    private func setupView() {
-        addSubview(stackView)
-        stackView.snp.makeConstraints { (make) in
-            make.top.equalTo(self).offset(2.5)
-            make.left.equalTo(self).offset(5)
-            make.bottom.equalTo(self).offset(-2.5)
-        }
-    }
-    
+
     private func setItems() {
         removeArrangedSubviews()
-        if slideTapDelegate == nil {
-            return
-        }
+        guard let _ = slideTapDelegate else { return }
         numberOfRows = slideTapDelegate!.slideTapViewNumberOfRows(self)
         for index in 0 ..< numberOfRows {
             let button = tagButton()
             let title = slideTapDelegate!.slideTapView(self, titleAtIndex: index)
             button.setTitle("  \(title)  ", for: UIControlState.normal)
             button.tag = index + 1
-            stackView.addArrangedSubview(button)
         }
-        let buttons = stackView.arrangedSubviews
-        if buttons.count > 0 {
-            let button = buttons[currentIndex] as! UIButton
-            setSelectedItem(button)
-        }
+        guard let button = stackView.arrangedSubviews.first as? UIButton else { return }
+        setSelectedItem(button)
         layoutIfNeeded()
-        contentSize = CGSize.init(width: stackView.frame.width + 10, height: 0)
     }
     
     private func tagButton() -> UIButton {
         let button = UIButton()
-        button.setTitleColor(UIColor.HEXCOLOR("555555"), for: UIControlState.normal)
+        button.setTitleColor(UIColor.hex("555555"), for: .normal)
+        button.setTitleColor(UIColor.hex("ffffff"), for: .selected)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
+        button.backgroundColor = UIColor.hex("f5f5f5")
         button.addTarget(self, action: .tapAction, for: UIControlEvents.touchUpInside)
-        button.snp.makeConstraints { (make) in
-            make.height.equalTo(25)
-        }
+        stackView.addArrangedSubview(button)
         return button
     }
     
     private func setSelectedItem(_ button: UIButton) {
         let oldButton = selectedItem
         oldButton?.isSelected = false
-        oldButton?.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
-        oldButton?.setTitleColor(UIColor.HEXCOLOR("555555"), for: UIControlState.normal)
-        
+        oldButton?.backgroundColor = UIColor.hex("f5f5f5")
+
         button.isSelected = true
-        button.backgroundColor = UIColor.HEXCOLOR("333344")
-        button.setTitleColor(UIColor.HEXCOLOR("ffffff"), for: UIControlState.normal)
+        button.backgroundColor = UIColor.hex("333344")
         selectedItem = button
     }
     
     private func removeArrangedSubviews() {
-        let views = stackView.arrangedSubviews
-        for button in views {
+        for button in stackView.arrangedSubviews {
             stackView.removeArrangedSubview(button)
             button.removeFromSuperview()
         }
@@ -157,8 +103,29 @@ class KDSlideTapView: UIScrollView {
     private lazy var stackView: UIStackView = {
         var stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.alignment = .fill
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         stackView.spacing = 5
+        contentView.addSubview(stackView)
+        stackView.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(contentView).inset(UIEdgeInsetsMake(0, 5, 0, 5))
+            make.height.equalTo(contentView)
+        }
         return stackView
+    }()
+    
+    private lazy var contentView: UIScrollView = {
+        var scrollView = UIScrollView()
+        scrollView.scrollsToTop = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        if #available(iOS 11.0, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        addSubview(scrollView)
+        scrollView.snp.makeConstraints({ (make) in
+            make.edges.equalTo(self)
+        })
+        return scrollView
     }()
 }

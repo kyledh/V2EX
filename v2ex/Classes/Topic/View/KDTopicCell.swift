@@ -23,7 +23,7 @@ class KDTopicCell : UITableViewCell {
     
     // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDTopicModel) {
-        let url = URL(string: "https:" + (model.createdAvatar)!)
+        let url = URL(string: "https:" + (model.createdAvatar ?? ""))
         avatorImageView.kf.setImage(with: url)
         titleLabel.text = model.title
         nodeLabel.text = " \(model.nodeName ?? "") "
@@ -32,7 +32,6 @@ class KDTopicCell : UITableViewCell {
         layoutIfNeeded()
     }
     
-    // MARK: Private Method
     private func setupView() {
         contentView.bottomLine()
         contentView.addSubview(avatorImageView)
@@ -72,12 +71,15 @@ class KDTopicCell : UITableViewCell {
         var avatorImageView = UIImageView()
         avatorImageView.layer.cornerRadius = 3
         avatorImageView.layer.masksToBounds = true
+        if #available(iOS 11, *) {
+            avatorImageView.accessibilityIgnoresInvertColors = true
+        }
         return avatorImageView
     }()
     
     private lazy var titleLabel: UILabel = {
         var titleLabel = UILabel()
-        titleLabel.textColor = UIColor.HEXCOLOR("778087")
+        titleLabel.textColor = UIColor.hex("778087")
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         titleLabel.numberOfLines = 0
         return titleLabel
@@ -85,15 +87,15 @@ class KDTopicCell : UITableViewCell {
     
     private lazy var nodeLabel: UILabel = {
        var nodeLabel = UILabel()
-        nodeLabel.textColor = UIColor.HEXCOLOR("999999")
+        nodeLabel.textColor = UIColor.hex("999999")
         nodeLabel.font = UIFont.systemFont(ofSize: 12)
-        nodeLabel.backgroundColor = UIColor.HEXCOLOR("f5f5f5")
+        nodeLabel.backgroundColor = UIColor.hex("f5f5f5")
         return nodeLabel
     }()
     
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
-        creatorLabel.textColor = UIColor.HEXCOLOR("778087")
+        creatorLabel.textColor = UIColor.hex("778087")
         creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return creatorLabel
     }()
@@ -101,7 +103,7 @@ class KDTopicCell : UITableViewCell {
     private lazy var repliesLabel: UILabel = {
        var repliesLabel = UILabel()
         repliesLabel.textColor = UIColor.white
-        repliesLabel.backgroundColor = UIColor.HEXCOLOR("aab0c6")
+        repliesLabel.backgroundColor = UIColor.hex("aab0c6")
         repliesLabel.font = UIFont.boldSystemFont(ofSize: 12)
         repliesLabel.layer.cornerRadius = 5
         repliesLabel.layer.masksToBounds = true

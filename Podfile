@@ -9,5 +9,6 @@ target 'v2ex' do
     pod 'Kingfisher', '~> 4.0'
     pod 'RxSwift',    '~> 4.0'
     pod 'RxCocoa',    '~> 4.0'
-    pod 'PKHUD',      '~> 5.0'
+    pod 'Then',       '~> 2.3'
+    pod 'MBProgressHUD', '~> 1.1.0'
 end

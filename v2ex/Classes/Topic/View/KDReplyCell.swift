@@ -16,7 +16,7 @@ class KDReplyCell : UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        p_setupView()
+        setupView()
     }
     
     // FIXME: 不合理，应该使用 Struts
@@ -31,8 +31,7 @@ class KDReplyCell : UITableViewCell {
         layoutIfNeeded()
     }
     
-    // MARK: Private Method
-    private func p_setupView() {
+    private func setupView() {
         contentView.topLine()
         contentView.addSubview(avatorImageView)
         contentView.addSubview(creatorLabel)
@@ -75,12 +74,15 @@ class KDReplyCell : UITableViewCell {
         var avatorImageView = UIImageView()
         avatorImageView.layer.cornerRadius = 3
         avatorImageView.layer.masksToBounds = true
+        if #available(iOS 11, *) {
+            avatorImageView.accessibilityIgnoresInvertColors = true
+        }
         return avatorImageView
     }()
     
     private lazy var creatorLabel: UILabel = {
        var creatorLabel = UILabel()
-        creatorLabel.textColor = UIColor.HEXCOLOR("778087")
+        creatorLabel.textColor = UIColor.hex("778087")
         creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         creatorLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
         return creatorLabel
@@ -88,14 +90,14 @@ class KDReplyCell : UITableViewCell {
     
     private lazy var timeLabel: UILabel = {
         var timeLabel = UILabel()
-        timeLabel.textColor = UIColor.HEXCOLOR("cccccc")
+        timeLabel.textColor = UIColor.hex("cccccc")
         timeLabel.font = UIFont.systemFont(ofSize: 12)
         return timeLabel
     }()
     
     private lazy var tagLabel: UILabel = {
         var tagLabel = UILabel()
-        tagLabel.textColor = UIColor.HEXCOLOR("778087")
+        tagLabel.textColor = UIColor.hex("778087")
         tagLabel.font = UIFont.boldSystemFont(ofSize: 12)
         return tagLabel
     }()
@@ -110,8 +112,8 @@ class KDReplyCell : UITableViewCell {
     
     private lazy var floorLabel: UILabel = {
        var floorLabel = UILabel()
-        floorLabel.textColor = UIColor.HEXCOLOR("cccccc")
-        floorLabel.backgroundColor = UIColor.HEXCOLOR("f0f0f0")
+        floorLabel.textColor = UIColor.hex("cccccc")
+        floorLabel.backgroundColor = UIColor.hex("f0f0f0")
         floorLabel.font = UIFont.boldSystemFont(ofSize: 12)
         floorLabel.layer.cornerRadius = 5
         floorLabel.layer.masksToBounds = true

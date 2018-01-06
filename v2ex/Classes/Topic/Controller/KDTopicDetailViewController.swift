@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import SafariServices
+import MBProgressHUD
 
 fileprivate extension Selector {
     static let forwardWeb = #selector(KDTopicDetailViewController.forwardWeb)
@@ -32,12 +33,11 @@ class KDTopicDetailViewController : KDBaseViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize" {
-            let oldSize = change![.oldKey] as! NSValue
-            let newSize = change![.newKey] as! NSValue
+            guard let oldSize = change?[.oldKey] as? NSValue else { return }
+            guard let newSize = change?[.newKey] as? NSValue else { return }
             if oldSize != newSize {
-                let height =  newSize.cgSizeValue.height
                 contentView.snp.updateConstraints({ (make) in
-                    make.height.equalTo(height)
+                    make.height.equalTo(newSize.cgSizeValue.height)
                 })
             }
             tableView.tableHeaderView = tableHeaderView
@@ -47,37 +47,34 @@ class KDTopicDetailViewController : KDBaseViewController {
     }
     
     override var previewActionItems: [UIPreviewActionItem] {
-        let cancel = UIPreviewAction.init(title: "取消",
-                                          style: .destructive,
-                                          handler: {(cacel: UIPreviewAction, self: UIViewController) in
-                                            print("cancel")}
-        )
+        let cancel = UIPreviewAction(title: "取消",
+                                     style: .destructive,
+                                     handler: {(cacel: UIPreviewAction, self: UIViewController) in print("cancel")})
         return [cancel]
     }
     
-    // MARK: Private Method
     private func setupView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
         setupTableHeader()
-        let rightBarItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "kd_forward"), style: .plain, target: self, action: .forwardWeb)
-        navigationItem.rightBarButtonItem = rightBarItem;
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "kd_forward"), style: .plain, target: self, action: .forwardWeb)
     }
     
     @objc fileprivate func forwardWeb() {
-        let urlString = KDConfig.APIHost() + (topic.url ?? "")
-        let url = URL.init(string: urlString)
-        openURL(url!)
+        guard let topicUrl = topic.url else { return }
+        guard let url = URL(string: KDConfig.APIHost() + topicUrl) else { return }
+        openURL(url)
     }
     
     private func openURL(_ url: URL) {
-        let safariViewController = SFSafariViewController.init(url: url)
+        let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
     }
     
     private func loadData() {
+        MBProgressHUD.showAdded(to: view, animated: true)
         viewModel.topic = topic
         titleLabel.text = topic.title
         descriptionLabel.text = "By \(topic.createdName ?? "")";//" at \(topic.created?.formatDate() ?? "")"
@@ -85,7 +82,10 @@ class KDTopicDetailViewController : KDBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.topic = data
             strongSelf.refreshView()
-        }) { (error) in
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
+        }) { [weak self] (error) in
+            guard let strongSelf = self else { return }
+            MBProgressHUD.hide(for: strongSelf.view, animated: true)
         }
     }
     
@@ -140,7 +140,7 @@ class KDTopicDetailViewController : KDBaseViewController {
     
     private lazy var descriptionLabel: UILabel = {
         var descriptionLabel = UILabel()
-        descriptionLabel.textColor = UIColor.HEXCOLOR("999999")
+        descriptionLabel.textColor = UIColor.hex("999999")
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
         descriptionLabel.bottomLine()
         return descriptionLabel
@@ -184,19 +184,16 @@ extension KDTopicDetailViewController : WKNavigationDelegate {
 extension KDTopicDetailViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < viewModel.topicReplies.count {
-            let model: KDReplyModel = viewModel.topicReplies[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "kd_reply_cell") as! KDReplyCell
-            cell.loadData(model)
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "kd_reply_cell") as? KDReplyCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        let model: KDReplyModel = viewModel.topicReplies[indexPath.row]
+        cell.loadData(model)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row < viewModel.topicReplies.count {
-        }
     }
 }
 

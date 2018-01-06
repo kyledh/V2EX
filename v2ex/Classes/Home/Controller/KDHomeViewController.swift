@@ -31,11 +31,12 @@ class KDHomeViewController : KDBaseViewController {
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParentViewController: self)
         slideTapView.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(view)
-            make.height.equalTo(30)
+            make.top.equalTo(view).offset(2.5)
+            make.left.right.equalTo(view)
+            make.height.equalTo(25)
+            make.bottom.equalTo(separateLine.snp.bottom).offset(-2.5)
         }
         separateLine.snp.makeConstraints { (make) in
-            make.top.equalTo(slideTapView.snp.bottom)
             make.left.right.equalTo(view)
             make.height.equalTo(0.5)
         }
@@ -49,8 +50,7 @@ class KDHomeViewController : KDBaseViewController {
         viewModel.fetchHotNodes(success: { (nodes) in
             self.slideTapView.reloadData()
             self.setViewControllers()
-        }) { (error) in
-        }
+        }, failure: nil)
     }
     
     private func setViewControllers() {
@@ -59,13 +59,13 @@ class KDHomeViewController : KDBaseViewController {
             controller.nodeName = node.name
             viewControllers.append(controller)
         }
-        pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
     }
     
     
     // MARK: Lazy Loading
     private lazy var pageViewController: UIPageViewController = {
-        var pageViewController = UIPageViewController.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        var pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.delegate = self
         pageViewController.dataSource = self
         return pageViewController
@@ -79,7 +79,7 @@ class KDHomeViewController : KDBaseViewController {
     
     private lazy var separateLine: UIView = {
         let separateLine = UIView()
-        separateLine.backgroundColor = UIColor.HEXCOLOR("e2e2e2")
+        separateLine.backgroundColor = UIColor.hex("e2e2e2")
         return separateLine
     }()
 }
@@ -89,15 +89,15 @@ extension KDHomeViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if finished && completed {
-            slideTapView.currentIndex = indexOfTransitionTo
-        } else {
-            let controller = previousViewControllers.first as! KDTopicsViewController
-            indexOfTransitionTo = viewControllers.index(of: controller)
+            slideTapView.currentIndex = indexOfTransitionTo ?? 0
+            return
         }
+        guard let controller = previousViewControllers.first as? KDTopicsViewController else { return }
+        indexOfTransitionTo = viewControllers.index(of: controller)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        let controller = pendingViewControllers.first as! KDTopicsViewController
+        guard let controller = pendingViewControllers.first as? KDTopicsViewController else { return }
         indexOfTransitionTo = viewControllers.index(of: controller)
     }
 }
@@ -106,23 +106,23 @@ extension KDHomeViewController: UIPageViewControllerDelegate {
 extension KDHomeViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let controller = viewController as! KDTopicsViewController
+        guard let controller = viewController as? KDTopicsViewController else { return nil }
         var index = viewControllers.index(of: controller)
         if index == NSNotFound {
-            return nil;
+            return nil
         }
         index = index! - 1
         if index! >= 0 && index! < viewControllers.count {
             return viewControllers[index!]
         }
-        return nil;
+        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let controller = viewController as! KDTopicsViewController
+        guard let controller = viewController as? KDTopicsViewController else { return nil }
         var index = viewControllers.index(of: controller)
         if index == NSNotFound {
-            return nil;
+            return nil
         }
         index = index! + 1
         if index! >= 0 && index! < viewControllers.count {
