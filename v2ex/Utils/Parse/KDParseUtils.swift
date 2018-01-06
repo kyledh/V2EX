@@ -13,7 +13,7 @@ class KDParseUtils {
     public static let shared = KDParseUtils()
     
     public func DataConvertHTMLDocument(_ data: Data) -> HTMLDocument? {
-        guard let string = String.init(data: data, encoding: .utf8) else { return nil }
+        guard let string = String(data: data, encoding: .utf8) else { return nil }
         return StringConvertHTMLDocument(string)
     }
     

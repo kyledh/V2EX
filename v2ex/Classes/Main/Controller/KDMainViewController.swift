@@ -14,8 +14,8 @@ class KDMainViewController : UITabBarController {
         super.viewDidLoad()
         tabBar.tintColor = UIColor.black
         
-        let homeNavigationController = UINavigationController.init(rootViewController: KDHomeViewController())
-        let userNavigationController = UINavigationController.init(rootViewController: KDUserViewController())
+        let homeNavigationController = UINavigationController(rootViewController: KDHomeViewController())
+        let userNavigationController = UINavigationController(rootViewController: KDPersonalViewController())
         
         homeNavigationController.tabBarItem.title = "首页"
         homeNavigationController.tabBarItem.image = #imageLiteral(resourceName: "kd_home")

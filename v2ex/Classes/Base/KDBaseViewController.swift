@@ -37,7 +37,7 @@ class KDBaseViewController : UIViewController {
     // MARK: Private Method
     private func presentLeftBar() {
         if presentingViewController != nil && navigationController?.viewControllers.count == 1 {
-            navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: .dismissViewController)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: .dismissViewController)
         }
     }
     

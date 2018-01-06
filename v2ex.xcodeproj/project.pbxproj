@@ -22,13 +22,17 @@
 		2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */; };
 		2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */; };
 		2768BA851F765FAA00FE7BF3 /* KDHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */; };
-		2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */; };
+		2768BA881F765FBB00FE7BF3 /* KDPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA871F765FBB00FE7BF3 /* KDPersonalViewController.swift */; };
 		2768BA8A1F766B2100FE7BF3 /* KDTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA891F766B2100FE7BF3 /* KDTopicsViewController.swift */; };
 		2768BA8D1F774C0000FE7BF3 /* KDTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA8C1F774C0000FE7BF3 /* KDTopicModel.swift */; };
 		2768BA8F1F774C4D00FE7BF3 /* KDMemberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA8E1F774C4D00FE7BF3 /* KDMemberModel.swift */; };
 		2768BA911F774C7F00FE7BF3 /* KDNodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA901F774C7F00FE7BF3 /* KDNodeModel.swift */; };
 		2768BA991F774EDC00FE7BF3 /* KDTopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */; };
 		2768BA9B1F77508900FE7BF3 /* KDTopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2768BA9A1F77508900FE7BF3 /* KDTopicsViewModel.swift */; };
+		2783DD0F2000BB0900239567 /* KDUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD0E2000BB0900239567 /* KDUserViewController.swift */; };
+		2783DD112000BF7500239567 /* KDUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD102000BF7500239567 /* KDUserModel.swift */; };
+		2783DD142000C14B00239567 /* KDUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD132000C14B00239567 /* KDUserViewModel.swift */; };
+		2783DD162000C17C00239567 /* KDUserParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD152000C17C00239567 /* KDUserParse.swift */; };
 		278E96E91FAEBB1700F3C64D /* KDParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E96E81FAEBB1700F3C64D /* KDParseUtils.swift */; };
 		278E96EB1FAEF4E300F3C64D /* KDTopicParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E96EA1FAEF4E300F3C64D /* KDTopicParse.swift */; };
 		27B70D2D1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */; };
@@ -45,7 +49,6 @@
 		27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */; };
 		27FD400D1FB72AA60080934E /* KDUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD400C1FB72AA60080934E /* KDUserService.swift */; };
 		27FD40101FB7F92D0080934E /* KDLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD400F1FB7F92D0080934E /* KDLoginViewModel.swift */; };
-		27FD40121FB7FA8B0080934E /* KDLoginParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD40111FB7FA8B0080934E /* KDLoginParse.swift */; };
 		AA245975717B1D29D90910C3 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,13 +68,17 @@
 		2768BA7C1F765D3D00FE7BF3 /* KDAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDAPIClient.swift; sourceTree = "<group>"; };
 		2768BA7F1F765D5C00FE7BF3 /* KDMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMainViewController.swift; sourceTree = "<group>"; };
 		2768BA841F765FAA00FE7BF3 /* KDHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDHomeViewController.swift; sourceTree = "<group>"; };
-		2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDUserViewController.swift; sourceTree = "<group>"; };
+		2768BA871F765FBB00FE7BF3 /* KDPersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDPersonalViewController.swift; sourceTree = "<group>"; };
 		2768BA891F766B2100FE7BF3 /* KDTopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicsViewController.swift; sourceTree = "<group>"; };
 		2768BA8C1F774C0000FE7BF3 /* KDTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicModel.swift; sourceTree = "<group>"; };
 		2768BA8E1F774C4D00FE7BF3 /* KDMemberModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDMemberModel.swift; sourceTree = "<group>"; };
 		2768BA901F774C7F00FE7BF3 /* KDNodeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDNodeModel.swift; sourceTree = "<group>"; };
 		2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicService.swift; sourceTree = "<group>"; };
 		2768BA9A1F77508900FE7BF3 /* KDTopicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDTopicsViewModel.swift; sourceTree = "<group>"; };
+		2783DD0E2000BB0900239567 /* KDUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserViewController.swift; sourceTree = "<group>"; };
+		2783DD102000BF7500239567 /* KDUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserModel.swift; sourceTree = "<group>"; };
+		2783DD132000C14B00239567 /* KDUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserViewModel.swift; sourceTree = "<group>"; };
+		2783DD152000C17C00239567 /* KDUserParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserParse.swift; sourceTree = "<group>"; };
 		278E96E81FAEBB1700F3C64D /* KDParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDParseUtils.swift; sourceTree = "<group>"; };
 		278E96EA1FAEF4E300F3C64D /* KDTopicParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDTopicParse.swift; sourceTree = "<group>"; };
 		27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDBaseLargeTitlesViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +97,6 @@
 		27F5B0A81F93084B00446B4C /* KDSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDSettingViewController.swift; sourceTree = "<group>"; };
 		27FD400C1FB72AA60080934E /* KDUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserService.swift; sourceTree = "<group>"; };
 		27FD400F1FB7F92D0080934E /* KDLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginViewModel.swift; sourceTree = "<group>"; };
-		27FD40111FB7FA8B0080934E /* KDLoginParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginParse.swift; sourceTree = "<group>"; };
 		3F3DA4BDB0061B93595EDCC7 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		49A0E5DF02DCEE965C6E30C0 /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
 		70A354D1BC7C6DD5B11DEB54 /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,9 +183,9 @@
 		2768BA741F765C1900FE7BF3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				27B7E1DC1F8609770004C89F /* UIView+Extension.swift */,
-				2768BA781F765D2600FE7BF3 /* UIColor+Extension.swift */,
 				27CB24DC1F84E038004CEB00 /* KDSlideTapView.swift */,
+				2768BA781F765D2600FE7BF3 /* UIColor+Extension.swift */,
+				27B7E1DC1F8609770004C89F /* UIView+Extension.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				2768BA861F765FAD00FE7BF3 /* Controller */,
+				2783DD122000BF8600239567 /* Model */,
 				27FD400B1FB72A420080934E /* Service */,
 				27FD400E1FB7F90D0080934E /* ViewModel */,
 			);
@@ -232,7 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				27F5B0A41F92566800446B4C /* KDLoginViewController.swift */,
-				2768BA871F765FBB00FE7BF3 /* KDUserViewController.swift */,
+				2768BA871F765FBB00FE7BF3 /* KDPersonalViewController.swift */,
+				2783DD0E2000BB0900239567 /* KDUserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +302,14 @@
 				2768BA981F774EDC00FE7BF3 /* KDTopicService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2783DD122000BF8600239567 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2783DD102000BF7500239567 /* KDUserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		278E96E71FAEBAF000F3C64D /* Parse */ = {
@@ -375,7 +391,7 @@
 		27FD400B1FB72A420080934E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				27FD40111FB7FA8B0080934E /* KDLoginParse.swift */,
+				2783DD152000C17C00239567 /* KDUserParse.swift */,
 				27FD400C1FB72AA60080934E /* KDUserService.swift */,
 			);
 			path = Service;
@@ -385,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				27FD400F1FB7F92D0080934E /* KDLoginViewModel.swift */,
+				2783DD132000C14B00239567 /* KDUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -566,13 +583,13 @@
 				2768BA8D1F774C0000FE7BF3 /* KDTopicModel.swift in Sources */,
 				271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */,
 				2768BA8F1F774C4D00FE7BF3 /* KDMemberModel.swift in Sources */,
-				27FD40121FB7FA8B0080934E /* KDLoginParse.swift in Sources */,
 				27B7E1DD1F8609770004C89F /* UIView+Extension.swift in Sources */,
 				27FD400D1FB72AA60080934E /* KDUserService.swift in Sources */,
-				2768BA881F765FBB00FE7BF3 /* KDUserViewController.swift in Sources */,
+				2768BA881F765FBB00FE7BF3 /* KDPersonalViewController.swift in Sources */,
 				2768BA771F765D0700FE7BF3 /* KDBaseViewController.swift in Sources */,
 				278E96E91FAEBB1700F3C64D /* KDParseUtils.swift in Sources */,
 				2768BA801F765D5C00FE7BF3 /* KDMainViewController.swift in Sources */,
+				2783DD112000BF7500239567 /* KDUserModel.swift in Sources */,
 				271BBB5E1F77DFC7003507AC /* KDReplyModel.swift in Sources */,
 				271BBB5A1F77CE7E003507AC /* KDTopicDetailViewModel.swift in Sources */,
 				2768BA7D1F765D3D00FE7BF3 /* KDAPIClient.swift in Sources */,
@@ -581,12 +598,15 @@
 				27FD40101FB7F92D0080934E /* KDLoginViewModel.swift in Sources */,
 				2768BA8A1F766B2100FE7BF3 /* KDTopicsViewController.swift in Sources */,
 				271BBB561F777E5D003507AC /* KDTopicCell.swift in Sources */,
+				2783DD0F2000BB0900239567 /* KDUserViewController.swift in Sources */,
 				271BBB601F77E4A6003507AC /* KDReplyCell.swift in Sources */,
 				27F5B0A91F93084B00446B4C /* KDSettingViewController.swift in Sources */,
 				27B7A05B1F7645A7006B184E /* AppDelegate.swift in Sources */,
 				2768BA791F765D2600FE7BF3 /* UIColor+Extension.swift in Sources */,
 				2763DCF81F8522F20005DFAC /* KDNodesVIewModel.swift in Sources */,
 				2768BA991F774EDC00FE7BF3 /* KDTopicService.swift in Sources */,
+				2783DD162000C17C00239567 /* KDUserParse.swift in Sources */,
+				2783DD142000C14B00239567 /* KDUserViewModel.swift in Sources */,
 				2768BA9B1F77508900FE7BF3 /* KDTopicsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

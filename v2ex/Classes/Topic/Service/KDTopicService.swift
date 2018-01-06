@@ -14,7 +14,7 @@ extension KDAPIClient {
                                     success: SuccessClosure?,
                                     failure: FailureClosure?) {
         let params = ["tab": nodeName as AnyObject]
-        self.getRequest(path: nil, params: params, success: { (data) in
+        getRequest(path: nil, params: params, success: { (data) in
             success?(data)
         }, failure: { (error) in
             failure?(error)
@@ -24,7 +24,7 @@ extension KDAPIClient {
     public func fetchTopicDetail(topicUrl: String,
                                  success: SuccessClosure?,
                                  failure: FailureClosure?) {
-        self.getRequest(path: topicUrl, params: nil, success: { data in
+        getRequest(path: topicUrl, params: nil, success: { data in
             success?(data)
         }, failure: { error in
             failure?(error)

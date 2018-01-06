@@ -47,9 +47,10 @@ class KDHomeViewController : KDBaseViewController {
     }
     
     private func reloadData() {
-        viewModel.fetchHotNodes(success: { (nodes) in
-            self.slideTapView.reloadData()
-            self.setViewControllers()
+        viewModel.fetchHotNodes(success: { [weak self] (nodes) in
+            guard let strongSelf = self else { return }
+            strongSelf.slideTapView.reloadData()
+            strongSelf.setViewControllers()
         }, failure: nil)
     }
     

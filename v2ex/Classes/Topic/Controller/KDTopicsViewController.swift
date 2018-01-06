@@ -78,6 +78,14 @@ extension KDTopicsViewController : UITableViewDelegate {
         }
         let model = viewModel.topics[indexPath.row]
         cell.loadData(model)
+        cell.clickAvatar = { [weak self] username in
+            guard let strongSelf = self else { return }
+            let userViewController = KDUserViewController().then {
+                $0.username = username
+                $0.hidesBottomBarWhenPushed = true
+            }
+            strongSelf.navigationController?.pushViewController(userViewController, animated: true)
+        }
         return cell
     }
     

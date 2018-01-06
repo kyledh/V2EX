@@ -8,9 +8,17 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
 import Kingfisher
 
+private extension Selector {
+    static let clickAvatarEvent = #selector(KDTopicCell.clickAvatarEvent)
+}
+
 class KDTopicCell : UITableViewCell {
+    
+    public var clickAvatar: ((_ username: String) -> Void)? = nil
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,7 +32,7 @@ class KDTopicCell : UITableViewCell {
     // FIXME: 不合理，应该使用 Struts
     func loadData(_ model: KDTopicModel) {
         let url = URL(string: "https:" + (model.createdAvatar ?? ""))
-        avatorImageView.kf.setImage(with: url)
+        avatarButton.kf.setImage(with: url, for: .normal)
         titleLabel.text = model.title
         nodeLabel.text = " \(model.nodeName ?? "") "
         creatorLabel.text = model.createdName
@@ -34,24 +42,24 @@ class KDTopicCell : UITableViewCell {
     
     private func setupView() {
         contentView.bottomLine()
-        contentView.addSubview(avatorImageView)
+        contentView.addSubview(avatarButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(nodeLabel)
         contentView.addSubview(creatorLabel)
         contentView.addSubview(repliesLabel)
-        avatorImageView.snp.makeConstraints { (make) in
+        avatarButton.snp.makeConstraints { (make) in
             make.left.equalTo(contentView).offset(15)
             make.width.height.equalTo(35)
             make.centerY.equalTo(contentView)
         }
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(10)
-            make.left.equalTo(avatorImageView.snp.right).offset(10)
+            make.left.equalTo(avatarButton.snp.right).offset(10)
             make.right.lessThanOrEqualTo(repliesLabel.snp.left).offset(-10)
         }
         nodeLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.left.equalTo(avatorImageView.snp.right).offset(10)
+            make.left.equalTo(avatarButton.snp.right).offset(10)
             make.bottom.equalTo(contentView).offset(-10)
         }
         creatorLabel.snp.makeConstraints { (make) in
@@ -66,48 +74,55 @@ class KDTopicCell : UITableViewCell {
         }
     }
     
+    @objc fileprivate func clickAvatarEvent() {
+        guard let username = creatorLabel.text else { return }
+        clickAvatar?(username)
+    }
+    
     // MARK: Lazy Loading
-    private lazy var avatorImageView: UIImageView = {
-        var avatorImageView = UIImageView()
-        avatorImageView.layer.cornerRadius = 3
-        avatorImageView.layer.masksToBounds = true
+    private lazy var avatarButton: UIButton = {
+        var button = UIButton()
+        button.backgroundColor = .gray
+        button.layer.cornerRadius = 3
+        button.layer.masksToBounds = true
         if #available(iOS 11, *) {
-            avatorImageView.accessibilityIgnoresInvertColors = true
+            button.accessibilityIgnoresInvertColors = true
         }
-        return avatorImageView
+        button.addTarget(self, action: .clickAvatarEvent, for: .touchUpInside)
+        return button
     }()
     
     private lazy var titleLabel: UILabel = {
-        var titleLabel = UILabel()
-        titleLabel.textColor = UIColor.hex("778087")
-        titleLabel.font = UIFont.systemFont(ofSize: 15)
-        titleLabel.numberOfLines = 0
-        return titleLabel
+        var label = UILabel()
+        label.textColor = UIColor.hex("778087")
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.numberOfLines = 0
+        return label
     }()
     
     private lazy var nodeLabel: UILabel = {
-       var nodeLabel = UILabel()
-        nodeLabel.textColor = UIColor.hex("999999")
-        nodeLabel.font = UIFont.systemFont(ofSize: 12)
-        nodeLabel.backgroundColor = UIColor.hex("f5f5f5")
-        return nodeLabel
+       var label = UILabel()
+        label.textColor = UIColor.hex("999999")
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.backgroundColor = UIColor.hex("f5f5f5")
+        return label
     }()
     
     private lazy var creatorLabel: UILabel = {
-       var creatorLabel = UILabel()
-        creatorLabel.textColor = UIColor.hex("778087")
-        creatorLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        return creatorLabel
+       var label = UILabel()
+        label.textColor = UIColor.hex("778087")
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        return label
     }()
     
     private lazy var repliesLabel: UILabel = {
-       var repliesLabel = UILabel()
-        repliesLabel.textColor = UIColor.white
-        repliesLabel.backgroundColor = UIColor.hex("aab0c6")
-        repliesLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        repliesLabel.layer.cornerRadius = 5
-        repliesLabel.layer.masksToBounds = true
-        repliesLabel.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
-        return repliesLabel
+       var label = UILabel()
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.hex("aab0c6")
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.layer.cornerRadius = 5
+        label.layer.masksToBounds = true
+        label.setContentCompressionResistancePriority(UILayoutPriority.required, for: .horizontal)
+        return label
     }()
 }

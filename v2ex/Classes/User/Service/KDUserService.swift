@@ -12,9 +12,18 @@ extension KDAPIClient {
 
     func fetchLoginPageInfo(success: SuccessClosure?, failure: FailureClosure?) {
         let path = "/signin"
-        self.getRequest(path: path, params: nil, success: { (data) in
+        getRequest(path: path, params: nil, success: { (data) in
             success?(data)
         }) { error in
+            failure?(error)
+        }
+    }
+    
+    func fetchUserDetail(username: String, success: SuccessClosure?, failure: FailureClosure?) {
+        let path = "/member/\(username)"
+        getRequest(path: path, params: nil, success: { (data) in
+            success?(data)
+        }) { (error) in
             failure?(error)
         }
     }

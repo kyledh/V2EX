@@ -16,6 +16,6 @@ extension UIColor {
     
     class func hex(value: String, alpha: CGFloat) -> UIColor? {
         guard let hexValue = Int(value, radix:16) else { return nil }
-        return UIColor.init(red: CGFloat((hexValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((hexValue & 0xFF00) >> 8) / 255.0, blue: CGFloat(hexValue & 0xFF) / 255.0, alpha: alpha)
+        return UIColor(red: CGFloat((hexValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((hexValue & 0xFF00) >> 8) / 255.0, blue: CGFloat(hexValue & 0xFF) / 255.0, alpha: alpha)
     }
 }
