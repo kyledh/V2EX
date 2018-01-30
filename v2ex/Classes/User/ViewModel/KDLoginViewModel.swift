@@ -9,15 +9,24 @@
 import Foundation
 
 class KDLoginViewModel {
-
-    func fetchVerificationCode(success: ((_ codeURL: String) -> ())?, failure: FailureClosure?) {
+    
+    func fetchVerificationCode(success: ((_ loginParams: KDLoginModel) -> ())?, failure: FailureClosure?) {
         KDAPIClient.shared.fetchLoginPageInfo(success: { data in
             guard data != nil else { return }
-            guard let codeURL = KDParseUtils.shared.verificationCode(data!) else {
+            guard let params = KDParseUtils.shared.loginParams(data!) else {
                 failure?(nil)
                 return
             }
-            success?(codeURL)
+            success?(params)
+        }, failure: { error in
+            failure?(error)
+        })
+    }
+    
+    func loginV2ex(params: [String: Any], success: (() -> ())?, failure: FailureClosure?) {
+        KDAPIClient.shared.loginV2ex(params: params, success: { data in
+            guard data != nil else { return }
+            success?()
         }, failure: { error in
             failure?(error)
         })

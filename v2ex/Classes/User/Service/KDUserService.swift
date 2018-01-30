@@ -27,4 +27,13 @@ extension KDAPIClient {
             failure?(error)
         }
     }
+    
+    func loginV2ex(params: [String: Any], success: SuccessClosure?, failure: FailureClosure?) {
+        let path = "/signin"
+        postRequest(path: path, params: params, success: { (data) in
+            success?(data)
+        }) { error in
+            failure?(error)
+        }
+    }
 }

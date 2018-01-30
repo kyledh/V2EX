@@ -17,7 +17,7 @@ class KDAPIClient {
     static let shared = KDAPIClient()
 
     public func getRequest(path: String?,
-                           params: [String : AnyObject]?,
+                           params: [String : Any]?,
                            success: SuccessClosure?,
                            failure: FailureClosure?)
     {
@@ -32,9 +32,25 @@ class KDAPIClient {
         })
     }
     
+    public func postRequest(path: String?,
+                           params: [String : Any]?,
+                           success: SuccessClosure?,
+                           failure: FailureClosure?)
+    {
+        request(method: .post,
+                path: path,
+                params: params,
+                success: { data in
+                    success?(data)
+        },
+                failure: { error in
+                    failure?(error)
+        })
+    }
+    
     private func request(method: HTTPMethod,
                          path: String?,
-                         params: [String : AnyObject]?,
+                         params: [String : Any]?,
                          success: SuccessClosure?,
                          failure: FailureClosure?)
     {

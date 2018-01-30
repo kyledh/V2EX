@@ -10,12 +10,20 @@ import UIKit
 
 extension KDParseUtils {
 
-    func verificationCode(_ data: Data) -> String? {
+    func loginParams(_ data: Data) -> KDLoginModel? {
         guard let doc = DataConvertHTMLDocument(data) else { return nil }
-        let text = doc.xpath("//*[@id=\"Main\"]/div[2]/div[2]/form/table//tr[3]/td[2]/div[1]").first?["style"] ?? ""
-        let range = text.range(of: "/_\\S*\\d", options: .regularExpression, range: text.startIndex..<text.endIndex, locale:Locale.current)
-        let code = String(text[range!])
-        return code
+        let params = KDLoginModel()
+        let infos = doc.xpath("//*[@id=\"Main\"]/div[2]/div[2]/form/table").first
+        let username = infos?.xpath("//tr[1]/td[2]/input").first
+        let password = infos?.xpath("//tr[2]/td[2]/input").first
+        let code = infos?.xpath("//tr[3]/td[2]/input").first
+        let codeUrl = infos?.xpath("tr[3]/td[2]/div[1]").first?["style"] ?? ""
+        let range = codeUrl.range(of: "/_\\S*\\d", options: .regularExpression, range: codeUrl.startIndex..<codeUrl.endIndex, locale:Locale.current)
+        params.usernameKey = username?["name"]
+        params.passwordKey = password?["name"]
+        params.codeKey = code?["name"]
+        params.codeUrl = String(codeUrl[range!])
+        return params
     }
     
     func userDetail(_ data: Data) -> KDUserModel? {

@@ -33,6 +33,7 @@
 		2783DD112000BF7500239567 /* KDUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD102000BF7500239567 /* KDUserModel.swift */; };
 		2783DD142000C14B00239567 /* KDUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD132000C14B00239567 /* KDUserViewModel.swift */; };
 		2783DD162000C17C00239567 /* KDUserParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD152000C17C00239567 /* KDUserParse.swift */; };
+		2783DD1A2000F39100239567 /* KDLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783DD192000F39100239567 /* KDLoginModel.swift */; };
 		278E96E91FAEBB1700F3C64D /* KDParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E96E81FAEBB1700F3C64D /* KDParseUtils.swift */; };
 		278E96EB1FAEF4E300F3C64D /* KDTopicParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E96EA1FAEF4E300F3C64D /* KDTopicParse.swift */; };
 		27B70D2D1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */; };
@@ -79,6 +80,7 @@
 		2783DD102000BF7500239567 /* KDUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserModel.swift; sourceTree = "<group>"; };
 		2783DD132000C14B00239567 /* KDUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserViewModel.swift; sourceTree = "<group>"; };
 		2783DD152000C17C00239567 /* KDUserParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDUserParse.swift; sourceTree = "<group>"; };
+		2783DD192000F39100239567 /* KDLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDLoginModel.swift; sourceTree = "<group>"; };
 		278E96E81FAEBB1700F3C64D /* KDParseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDParseUtils.swift; sourceTree = "<group>"; };
 		278E96EA1FAEF4E300F3C64D /* KDTopicParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDTopicParse.swift; sourceTree = "<group>"; };
 		27B70D2C1F8E3597006DC405 /* KDBaseLargeTitlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDBaseLargeTitlesViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				2783DD102000BF7500239567 /* KDUserModel.swift */,
+				2783DD192000F39100239567 /* KDLoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				278E96EB1FAEF4E300F3C64D /* KDTopicParse.swift in Sources */,
 				2768BA7B1F765D3000FE7BF3 /* KDConfig.swift in Sources */,
 				2768BA911F774C7F00FE7BF3 /* KDNodeModel.swift in Sources */,
+				2783DD1A2000F39100239567 /* KDLoginModel.swift in Sources */,
 				27CB24DD1F84E039004CEB00 /* KDSlideTapView.swift in Sources */,
 				2768BA8D1F774C0000FE7BF3 /* KDTopicModel.swift in Sources */,
 				271BBB581F77CCC5003507AC /* KDTopicDetailViewController.swift in Sources */,

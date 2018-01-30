@@ -9,9 +9,14 @@
 import UIKit
 import Kingfisher
 
+private extension Selector {
+    static let clickLoginButton = #selector(KDLoginViewController.clickLoginButton)
+}
+
 class KDLoginViewController: KDBaseViewController {
     
     var viewModel = KDLoginViewModel()
+    var loginParams: KDLoginModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +26,30 @@ class KDLoginViewController: KDBaseViewController {
     }
     
     private func fetchData() {
-        viewModel.fetchVerificationCode(success: { [weak self] code in
+        viewModel.fetchVerificationCode(success: { [weak self] loginParams in
             guard let strongSelf = self else { return }
-            KDAPIClient.shared.getRequest(path: code, params: nil, success: { data in
+            strongSelf.loginParams = loginParams
+            KDAPIClient.shared.getRequest(path: loginParams.codeUrl, params: nil, success: { data in
                 strongSelf.codeImage.image = UIImage(data: data!)
             }, failure: { error in
             })
         }, failure: { error in
         })
+    }
+    
+    @objc fileprivate func clickLoginButton() {
+        loginParams?.username = usernameField.text
+        loginParams?.password = passwordField.text
+        loginParams?.code = codeField.text
+        // TODO: unsafe
+        let params: [String: String] = [(loginParams?.usernameKey)!: (loginParams?.username)!,
+                                        (loginParams?.passwordKey)!: (loginParams?.password)!,
+                                        (loginParams?.codeKey)!: (loginParams?.code)!,
+                                        "once": "",
+                                        "next": "/"]
+        viewModel.loginV2ex(params: params, success: {
+        }) { (error) in
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -174,6 +195,7 @@ class KDLoginViewController: KDBaseViewController {
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.hex("999999")?.cgColor
         button.layer.cornerRadius = 2
+        button.addTarget(self, action: .clickLoginButton, for: .touchUpInside)
         return button
     }()
 }
