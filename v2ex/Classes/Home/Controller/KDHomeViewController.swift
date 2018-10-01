@@ -25,11 +25,11 @@ class KDHomeViewController : KDBaseViewController {
     
     // MARK: Private Method
     private func setupView() {
-        addChildViewController(pageViewController)
+        addChild(pageViewController)
         view.addSubview(slideTapView)
         view.addSubview(separateLine)
         view.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
+        pageViewController.didMove(toParent: self)
         slideTapView.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(2.5)
             make.left.right.equalTo(view)
@@ -145,7 +145,7 @@ extension KDHomeViewController : KDSlideTapDelegate {
     }
     
     func slideTapView(in slideTapView: KDSlideTapView, didSelectAtIndex index: Int) {
-        let direction: UIPageViewControllerNavigationDirection?
+        let direction: UIPageViewController.NavigationDirection?
         if index > slideTapView.currentIndex {
             direction = .forward
         } else {

@@ -64,7 +64,7 @@ class KDSlideTapView: UIView {
         for index in 0 ..< numberOfRows {
             let button = tagButton()
             let title = slideTapDelegate!.slideTapView(self, titleAtIndex: index)
-            button.setTitle("  \(title)  ", for: UIControlState.normal)
+            button.setTitle("  \(title)  ", for: .normal)
             button.tag = index + 1
         }
         guard let button = stackView.arrangedSubviews.first as? UIButton else { return }
@@ -78,7 +78,7 @@ class KDSlideTapView: UIView {
         button.setTitleColor(UIColor.hex("ffffff"), for: .selected)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         button.backgroundColor = UIColor.hex("f5f5f5")
-        button.addTarget(self, action: .tapAction, for: UIControlEvents.touchUpInside)
+        button.addTarget(self, action: .tapAction, for: .touchUpInside)
         stackView.addArrangedSubview(button)
         return button
     }
@@ -108,7 +108,7 @@ class KDSlideTapView: UIView {
         stackView.spacing = 5
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(contentView).inset(UIEdgeInsetsMake(0, 5, 0, 5))
+            make.top.left.right.equalTo(contentView).inset(UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
             make.height.equalTo(contentView)
         }
         return stackView

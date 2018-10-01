@@ -36,7 +36,7 @@ extension NSDate {
         
         let formatter = DateFormatter()
         formatter.dateFormat = formatterString
-        formatter.locale = NSLocale(localeIdentifier: "en") as Locale!
+        formatter.locale = NSLocale(localeIdentifier: "en") as Locale
         return formatter.string(from: self as Date)
     }
 }
