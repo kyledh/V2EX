@@ -1,6 +1,7 @@
 # V2EX
 
-> Apple Swift version 4.0 (swiftlang-900.0.65 clang-900.0.37)
+> Swift 4.2
+> Xcode 10
 
 练手项目，V2EX 第三方客户端
 
